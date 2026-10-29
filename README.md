@@ -1,113 +1,115 @@
-# Women, Power & Personality — The Annotated Archive
-### آرشیو حاشیه‌نویسی‌شده‌ی «زنان، قدرت و شخصیت در تاریخ» (Bilingual EN / FA)
+# Women, Power & Personality — Historical & Psychological Archive
+### آرشیو پژوهشی زنان، قدرت و شخصیت در تاریخ (Bilingual EN / FA)
 
-> **از داشبورد طلایی هوش مصنوعی به آرشیو پژوهشی و حاشیه‌نویسی‌شده**  
-> تفکیک روایتِ مستند تاریخی از برچسب‌های تشخیصی تحمیل‌شده بر زنان تاریخ‌ساز
+An interactive museum-grade single-page research archive exploring the intersection of female political/intellectual authority, statecraft, historiographical bias, and dimensional personality psychology (DSM-5-TR / ICD-11).
 
 🌐 **Live Demo (GitHub Pages):** [https://rghavipour.github.io/mentaldisorders/](https://rghavipour.github.io/mentaldisorders/)  
 📦 **Repository:** [https://github.com/rghavipour/mentaldisorders](https://github.com/rghavipour/mentaldisorders)
 
 ---
 
-## 🏛️ ایده‌ی مرکزی: «حاشیه» (The Marginalia)
+## 🎨 Overview & Artistic Direction
 
-در نگارش تاریخ و تاریخ‌پزشکی، حاشیه‌نویسی‌ها همان جایی هستند که صدای راوی اصلی را نقد یا تصحیح می‌کنند. سایت در این بازطراحی به یک **آرشیو حاشیه‌نویسی‌شده (Annotated Archive)** تبدیل شده است:
-1. **پالت آرشیوی دو حالته:** حالت کاغذی پیش‌فرض (`#F4EFE6`) با جوهر تیره (`#1C1A17`) و حالت «اتاق مطالعه» (`#161512`). تنها رنگ تأکیدی: مداد قرمز ویراستار (`#B42318`).
-2. **معماری چندصفحه‌ای واقعی:** جایگزینی کامل مودال‌ها با صفحات مستقل و قابل‌اشتراک (`archive/<id>.html`).
-3. **حذف درصدهای ساختگی:** جایگزینی تحلیل‌های شبه‌علمی درصدی با «سطح شواهد» (قوی ●●● / متوسط ●●○ / ضعیف ●○○) و «سوگیری راوی» (*خصمانه*، *هم‌دوره*، *پسامرگ*، *مدرن*).
-4. **تبارنامه‌ی برچسب‌ها (Lineage of Labels):** بازنمایی پیوسته از ۱۱ نقطه عطف تاریخی تاریخ تشخیص‌های پزشکی از بقراط تا ICD-11 و DSM-5-TR.
-5. **اعتبارسنجی نقل‌قول‌ها:** تفکیک دقیق نقل‌قول‌های مستند تاریخی از نقل‌قول‌های ساختگی و عامه‌پسند (با خط‌خوردگی انیمیشنی قرمز و یادداشت حاشیه‌ای تبارشناسی افسانه).
-6. **صفر درصد وابستگی خارجی در رانتایم:** فونت‌های خودمیزبان فارسی (وزیرمتن) و سریف لاتین (Source Serif 4)، بدون هیچ اتصال به Tailwind CDN یا Google Fonts CDN.
+The project presents a digital museum gallery featuring **10 historical and intellectual eras**. Each historical figure is represented through a dedicated classical oil-painting portrait crafted with deep chiaroscuro lighting, rich impasto brushwork, and museum-grade archival aesthetics.
 
----
-
-## 👥 ۹ پرونده‌ی تاریخی (ترتیب کرونولوژیک)
-
-1. **کلئوپاترا هفتم** (۶۹–۳۰ ق.م) — *مصر بطلمیوسی* | برچسب رومی: فساد، اغواگری، تکبر
-2. **هیپاتیا اسکندرانی** (۳۷۰–۴۱۵ م) — *اسکندریه باستان پسین* | برچسب کلیسایی: ساحره، اغواگر ذهن جوانان
-3. **وو زتیان** (۶۲۴–۷۰۵ م) — *چین تانگ / ژو* | برچسب وقایع‌نگاران کنفوسیوسی: قساوت بی‌رحمانه، هیولاگونگی
-4. **ایزابل یکم کاستیا** (۱۴۵۱–۱۵۰۴ م) — *اسپانیا رنسانس* | برچسب شایع: تعصب جنون‌آمیز، وسواس آیینی
-5. **کاترین دو مدیچی** (۱۵۱۹–۱۵۸۹ م) — *فرانسه رنسانس* | برچسب هوگنوها: مسموم‌کننده، زن ماکیاولیستی
-6. **مری شلی** (۱۷۹۷–۱۸۵۱ م) — *انگلستان رمانتیک* | برچسب ویکتوریایی: سودازدگی زنانه، بیماری عصبی
-7. **ملکه ویکتوریا** (۱۸۱۹–۱۹۰۱ م) — *امپراتوری بریتانیا* | برچسب اطرافیان: هیستری سوگ، ملودرام مالیخولیا
-8. **سیمون دو بووار** (۱۹۰۸–۱۹۸۶ م) — *اگزیستانسیالیسم قرن بیستم* | برچسب طبقه بورژوا: ناهنجاری زنانگی، کینه‌توزی
-9. **پرنسس دایانا** (۱۹۶۱–۱۹۹۷ م) — *بریتانیای اواخر قرن بیستم* | برچسب دربار و زردنامه‌ها: بی‌ثباتی هیجانی، دستکاری عاطفی
+### Featured Figures & Eras:
+1. **Hypatia of Alexandria** (370–415 AD) — *Late Antiquity Alexandria* | Intellectual Autonomy & Neoplatonism
+2. **Cleopatra VII** (69–30 BC) — *Ptolemaic Egypt* | Sovereign Hegemony & Diplomatic Realpolitik
+3. **Empress Wu Zetian** (624–705 AD) — *Tang / Zhou Dynasty China* | Meritocratic Autocracy & Zhou Transition
+4. **Isabella I of Castile** (1451–1504) — *Renaissance Spain* | Institutional Realpolitik & Religious Consolidation
+5. **Catherine de’ Medici** (1519–1589) — *Renaissance France* | Dynastic Preservation & Crisis Diplomacy
+6. **Mary Shelley** (1797–1851) — *Romantic Era* | Gothic Synthesis, Sublimated Grief & Creative Resilience
+7. **Queen Victoria** (1819–1901) — *Victorian Era* | Imperial Symbolism, Conscientiousness & Matriarchal Hegemony
+8. **Simone de Beauvoir** (1908–1986) — *Mid-Century Existentialism* | Radical Existential Autonomy & Feminist Deconstruction
+9. **Princess Diana** (1961–1997) — *Late 20th Century* | Public Affective Vulnerability, Compassion & Palace Alienation
+10. **Modern & Contemporary Era** (2000–Present) — *Contemporary Inquiry* | Dimensional Trait Accuracy (DSM-5-TR / ICD-11) & De-stigmatization
 
 ---
 
-## 📂 ساختار مخزن (بدون نیاز به بیلد یا رانتایم خاص)
+## 🔬 Psychological & Historiographical Framework
+
+Rather than applying retrospective diagnostic stigmatization ("Hysteria", "Witchcraft", "Madness", "Borderline"), this archive implements:
+* **Alternative Model for Personality Disorders (AMPD - DSM-5-TR Section III):** Dimensional spectrums of Negative Affectivity, Detachment, Antagonism, Disinhibition, and Anankastia.
+* **ICD-11 Personality Framework:** Severity scoring and contextual trait patterns.
+* **Historiographical Deconstruction:** Examining how political rivals, patriarchal chroniclers (e.g., John of Nikiu, Procopius, contemporary tabloids) weaponized pathologizing rhetoric against autonomous female rulers.
+
+---
+
+## 📂 Project Structure & Modular Architecture
+
+The repository is organized cleanly for immediate deployment on **GitHub Pages** without requiring build steps, bundlers, or server runtimes:
 
 ```text
 mentaldisorders/
-├── .nojekyll                   # استقرار مستقیم روی GitHub Pages بدون پردازش Jekyll
-├── index.html                  # صفحه‌ی اصلی آرشیو (فارسی)
-├── 404.html                    # صفحه‌ی خطای سفارشی
-├── timeline.html               # گاه‌شمار تناسبی زیست ۹ شخصیت
-├── labels.html                 # تبارنامه‌ی برچسب‌های روان‌پزشکی
-├── method.html                 # مقاله‌ی تفصیلی روش‌شناسی و نقد تشخیصی
-├── contribute.html             # راهنمای مشارکت و ارسال پرونده جدید
-├── archive/                    # فهرست پرونده‌ها و ۹ صفحه‌ی مستقل (فارسی)
-│   ├── index.html
-│   ├── cleopatra.html
-│   ├── hypatia.html
-│   ├── wuzetian.html
-│   ├── isabella.html
-│   ├── catherine.html
-│   ├── maryshelley.html
-│   ├── victoria.html
-│   ├── beauvoir.html
-│   └── diana.html
-├── en/                         # آینه‌ی کامل دوزبانه انگلیسی
-│   ├── index.html
-│   ├── timeline.html
-│   ├── labels.html
-│   ├── method.html
-│   ├── contribute.html
-│   └── archive/
-│       ├── index.html
-│       └── *.html (9 dossiers)
-├── data/                       # داده‌های تمیز ساختاریافته JSON
-│   ├── figures.json            # مشخصات کامل ۹ شخصیت با برچسب و ارجاعات
-│   └── labels-lineage.json     # ۱۱ نقطه عطف تبارشناسی برچسب‌های روان‌پزشکی
-├── fonts/                      # فونت‌های کاملاً خودمیزبان (Zero external network)
-│   ├── Vazirmatn-*.woff2       # تمام ۵ وزن وزیرمتن
-│   ├── NotoNaskhArabic-*.woff2
-│   ├── SourceSerif4-*.woff2    # Regular, Bold, Italic
-│   └── IBMPlexMono-Regular.woff2
+├── .nojekyll           # Bypasses Jekyll build on GitHub Pages
+├── index.html          # Main HTML5 entry point (Semantic UI, Hero, Timeline, Modals, SEO/A11y)
+├── fonts/              # Self-hosted Vazirmatn Persian typography (woff2, 300 to 700 weights)
+│   ├── Vazirmatn-Light.woff2
+│   ├── Vazirmatn-Regular.woff2
+│   ├── Vazirmatn-Medium.woff2
+│   ├── Vazirmatn-SemiBold.woff2
+│   └── Vazirmatn-Bold.woff2
 ├── css/
-│   └── styles.css              # سیستم طراحی اختصاصی آرشیو (Design Tokens)
+│   └── styles.css      # Museum styling, glowing timeline axis, arch cards, halo effects, GPU acceleration
 ├── js/
-│   └── archive.js              # تعویض تم کاغذی/شبانه، موتور جستجو، انیمیشن حاشیه
-└── images/                     # پرتره‌های تاریخی در ابعاد استاندارد
+│   ├── data.js         # Complete bilingual (FA/EN) dataset, DSM-5 traits, WebP/JPG paths, academic sources
+│   └── app.js          # Controller logic, debounced search, keyboard navigation, carousel, modals
+├── images/             # Classical oil portraits (WebP 80% compression, thumbnails & JPG fallbacks)
+│   ├── *.webp          # Modern compressed high-res portraits (~100-190KB)
+│   ├── *_thumb.webp    # Ultra-lightweight timeline thumbnails (~18-38KB)
+│   ├── *.jpg           # Progressive JPEG fallbacks
+│   └── sculpture.webp  # Self-hosted classical bust visual (0 external CDN dependencies)
+└── README.md           # Documentation, performance benchmarks & deployment guide
 ```
 
 ---
 
-## 🚀 نحوه‌ی انتشار و به‌روزرسانی در گیت‌هاب (GitHub Pages)
+## 🚀 How to Publish & Deploy to GitHub Pages
 
-این پروژه از فایل‌های تمیز HTML/CSS/JS استاتیک تشکیل شده و هیچ نیازی به Node.js، Webpack یا Jekyll ندارد.
+### 1. Commit and Push to GitHub
+Run the following commands in the project directory:
 
 ```bash
-# ۱. بررسی وضعیت تغییرات
+# Check status
 git status
 
-# ۲. ثبت تمام فایل‌ها
-git add -A
+# Stage all files
+git add .
 
-# ۳. ایجاد کامیت
-git commit -m "feat: complete editorial archival redesign"
+# Create commit
+git commit -m "feat: complete modular archive with classical oil portraits and bilingual UI"
 
-# ۴. ارسال به مخزن اصلی
+# Push to your GitHub repository
 git push origin main
 ```
 
-در تنظیمات گیت‌هاب:
-- **Settings > Pages > Branch:** `main` / Folder: `/(root)`
-- به دلیل وجود فایل `.nojekyll`، انتشار در چند ثانیه و بدون خطای تبدیل Sass انجام می‌شود.
+### 2. Enable GitHub Pages
+1. Go to your repository on GitHub: `https://github.com/rghavipour/mentaldisorders`
+2. Click **Settings** (تنظیمات مخزن)
+3. In the left sidebar, click **Pages**
+4. Under **Build and deployment > Branch**:
+   - Source: **Deploy from a branch**
+   - Branch: **`main`**
+   - Folder: **`/ (root)`**
+5. Click **Save**.
+6. Within 1–2 minutes, your website will be live at:  
+   👉 **`https://rghavipour.github.io/mentaldisorders/`**
 
 ---
 
-## 📜 مرجع و لایسنس
+## 🌐 Features
 
-- طراحی و متن‌ها تحت مجوز **CC BY-SA 4.0** منتشر شده‌اند.
-- کدهای وب‌سایت تحت مجوز **MIT License** در دسترس عموم هستند.
+- **Full Bilingual Support (فارسی / English):** One-click language switch with automatic RTL/LTR layout adjustment and Vazirmatn typography.
+- **Interactive Arch Timeline:** Smooth horizontal scrolling carousel with glowing timeline nodes and theme classification dots.
+- **Cinematic Double-Exposure Hero:** Golden halo aura with adjacent ghost portraits and period indicators.
+- **Deep-Dive Dossier Modal:** Comprehensive breakdown of biographical milestones, DSM-5-TR trait spectrums, primary sources, and chronicler bias analysis.
+- **DSM-5-TR Trait Radar & Distribution:** Dynamic interactive trait distribution curves across eras.
+- **JSON Export:** One-click full dataset export for researchers and students.
+- **100% Responsive:** Optimized across mobile, tablet, and widescreen desktop displays.
+
+---
+
+## 📜 License & Citation
+
+MIT License © 2026 rghavipour.  
+Academic references sourced from: APA DSM-5-TR (2022), WHO ICD-11 (2022), and historical primary sources.
