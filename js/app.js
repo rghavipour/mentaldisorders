@@ -128,6 +128,7 @@ let highlightedTrait = null;
 
         return `
           <article 
+            data-id="${fig.id}"
             onclick="selectFigure('${fig.id}')"
             class="arch-card cursor-pointer w-[176px] sm:w-[192px] flex-shrink-0 flex flex-col justify-between p-2.5 relative ${isSelected ? 'active-card' : ''}"
           >
@@ -163,8 +164,8 @@ let highlightedTrait = null;
               <div class="flex items-center gap-1.5">
                 ${dotsHtml}
               </div>
-              <span class="w-6 h-6 rounded-full border border-white/15 flex items-center justify-center text-[11px] text-stone-300 group-hover:border-antiqueGold">
-                →
+              <span class="w-6 h-6 rounded-full border border-white/15 flex items-center justify-center text-stone-300 group-hover:border-antiqueGold group-hover:text-paleGold transition">
+                <svg class="w-3 h-3 rtl:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
               </span>
             </div>
           </article>
@@ -173,9 +174,25 @@ let highlightedTrait = null;
     }
 
     // ================= SELECT FIGURE & UPDATE HERO SPOTLIGHT =================
-    function selectFigure(figureId) {
+    function selectFigure(figureId, shouldCenter = false) {
       selectedFigureId = figureId;
+      const container = document.getElementById('timelineContainer');
+      const prevScroll = container ? container.scrollLeft : 0;
+
       renderTimeline();
+
+      if (container) {
+        // Prevent innerHTML rewrite from resetting horizontal scroll to 0
+        container.scrollLeft = prevScroll;
+
+        if (shouldCenter) {
+          const activeCard = container.querySelector(`[data-id="${figureId}"]`);
+          if (activeCard) {
+            activeCard.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+          }
+        }
+      }
+
       updateHeroSection(figureId);
     }
 
@@ -255,12 +272,25 @@ let highlightedTrait = null;
     function cycleCharacter(direction) {
       const idx = FIGURES_DATA.findIndex(f => f.id === selectedFigureId);
       const nextIdx = (idx + direction + FIGURES_DATA.length) % FIGURES_DATA.length;
-      selectFigure(FIGURES_DATA[nextIdx].id);
+      selectFigure(FIGURES_DATA[nextIdx].id, true);
     }
 
-    function scrollTimeline(amount) {
+    function scrollTimeline(direction) {
       const container = document.getElementById('timelineContainer');
-      container.scrollBy({ left: amount, behavior: 'smooth' });
+      if (!container) return;
+
+      const scrollStep = 340;
+      let delta = (direction === 'left' || direction < 0) ? -scrollStep : scrollStep;
+      const initialScroll = container.scrollLeft;
+
+      container.scrollBy({ left: delta, behavior: 'smooth' });
+
+      // Fallback for Safari/WebKit RTL scrollLeft behavior:
+      setTimeout(() => {
+        if (container.scrollLeft === initialScroll) {
+          container.scrollBy({ left: -delta, behavior: 'smooth' });
+        }
+      }, 40);
     }
 
     function scrollToSection(id) {
