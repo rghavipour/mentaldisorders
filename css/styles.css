@@ -1,0 +1,241 @@
+/* ========================================================
+   Women, Power & Personality — Historical & Psychological Archive
+   Styles & Museum Atmosphere
+   ======================================================== */
+
+:root {
+  --bg-primary: #07090e;
+  --gold: #c9a66b;
+  --gold-glow: rgba(201, 166, 107, 0.35);
+  --blue-glow: rgba(122, 156, 255, 0.55);
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: #e5e0d8;
+  overflow-x: hidden;
+  background-image: 
+    radial-gradient(circle at 52% 28%, rgba(201, 166, 107, 0.10) 0%, rgba(12, 18, 30, 0.45) 38%, rgba(7, 9, 14, 0.98) 75%),
+    radial-gradient(circle at 15% 80%, rgba(56, 78, 128, 0.08) 0%, transparent 50%);
+}
+
+/* Subtle museum film grain texture */
+.museum-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.035'/%3E%3C/svg%3E");
+}
+
+/* Arch Portrait Card Style */
+.arch-card {
+  border-radius: 110px 110px 14px 14px;
+  background: linear-gradient(180deg, rgba(20, 26, 38, 0.85) 0%, rgba(10, 13, 20, 0.95) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.arch-card:hover {
+  border-color: rgba(201, 166, 107, 0.45);
+  transform: translateY(-4px);
+  box-shadow: 0 14px 34px -8px rgba(0, 0, 0, 0.7), 0 0 25px rgba(201, 166, 107, 0.12);
+}
+
+.arch-card.active-card {
+  border-color: #c9a66b;
+  background: linear-gradient(180deg, rgba(35, 31, 28, 0.88) 0%, rgba(14, 15, 22, 0.96) 100%);
+  box-shadow: 0 18px 40px -10px rgba(0, 0, 0, 0.85), 0 0 28px rgba(201, 166, 107, 0.28);
+  transform: translateY(-6px) scale(1.02);
+}
+
+.arch-image-wrapper {
+  border-radius: 105px 105px 0 0;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Glowing Timeline Axis */
+.timeline-axis-line {
+  height: 2px;
+  background: linear-gradient(90deg, 
+    rgba(122, 156, 255, 0.1) 0%, 
+    rgba(122, 156, 255, 0.65) 20%, 
+    rgba(201, 166, 107, 0.9) 50%, 
+    rgba(122, 156, 255, 0.65) 80%, 
+    rgba(122, 156, 255, 0.1) 100%);
+  box-shadow: 0 0 12px rgba(122, 156, 255, 0.6), 0 0 24px rgba(201, 166, 107, 0.3);
+}
+
+.timeline-node {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: #dbe6ff;
+  box-shadow: 0 0 10px 3px rgba(122, 156, 255, 0.85);
+  transition: all 0.3s ease;
+}
+
+.arch-card.active-card .timeline-node {
+  width: 13px;
+  height: 13px;
+  background: #f5d799;
+  box-shadow: 0 0 14px 5px rgba(201, 166, 107, 0.95);
+}
+
+/* Hide scrollbar for timeline container */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Golden Halo Ring behind Hero Portrait */
+.hero-halo {
+  border: 1px solid rgba(201, 166, 107, 0.38);
+  box-shadow: inset 0 0 50px rgba(201, 166, 107, 0.08), 0 0 60px rgba(201, 166, 107, 0.12);
+}
+
+.hero-halo::before {
+  content: '';
+  position: absolute;
+  inset: -14px;
+  border-radius: 9999px;
+  border: 1px dashed rgba(201, 166, 107, 0.16);
+  animation: slowSpin 90s linear infinite;
+}
+
+@keyframes slowSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Painterly Portrait Filter */
+.painterly-img {
+  filter: contrast(1.08) sepia(0.18) brightness(0.92);
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
+}
+.arch-card:hover .painterly-img {
+  transform: scale(1.06);
+  filter: contrast(1.12) sepia(0.1) brightness(1);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #07090e;
+}
+::-webkit-scrollbar-thumb {
+  background: #262f42;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c9a66b;
+}
+
+/* ========================================================
+   MODAL & QUOTE UI IMPROVEMENTS
+   ======================================================== */
+
+/* RTL & LTR Modal Close Button Placement */
+.modal-close-btn {
+  position: absolute;
+  top: 1.25rem;
+  z-index: 40;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.modal-close-btn:hover {
+  transform: scale(1.08);
+  border-color: rgba(201, 166, 107, 0.6);
+  color: #fff;
+}
+
+[dir="rtl"] .modal-close-btn {
+  left: 1.25rem !important;
+  right: auto !important;
+}
+
+[dir="ltr"] .modal-close-btn {
+  right: 1.25rem !important;
+  left: auto !important;
+}
+
+/* Elegant Quote Boxes */
+.quote-box {
+  background: linear-gradient(135deg, rgba(201, 166, 107, 0.08) 0%, rgba(12, 16, 24, 0.85) 100%);
+  border-inline-start: 3px solid var(--gold);
+}
+
+[dir="rtl"] .floating-hero-quote {
+  left: -12.5rem;
+  right: auto;
+  text-align: right;
+  border-inline-start: 1px solid rgba(201, 166, 107, 0.45);
+}
+
+[dir="ltr"] .floating-hero-quote {
+  right: -12.5rem;
+  left: auto;
+  text-align: left;
+  border-inline-start: 1px solid rgba(201, 166, 107, 0.45);
+}
+
+/* Golden Crown Quote Plaque (Above Head) */
+.golden-quote-plaque {
+  background: linear-gradient(180deg, rgba(20, 26, 38, 0.94) 0%, rgba(10, 13, 20, 0.98) 100%);
+  border: 1.5px solid rgba(201, 166, 107, 0.65);
+  box-shadow: 
+    0 12px 32px -4px rgba(0, 0, 0, 0.85),
+    0 0 24px rgba(201, 166, 107, 0.25),
+    inset 0 1px 0 rgba(230, 210, 170, 0.4);
+  position: relative;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.golden-quote-plaque:hover {
+  border-color: rgba(201, 166, 107, 0.9);
+  box-shadow: 
+    0 16px 36px -4px rgba(0, 0, 0, 0.92),
+    0 0 32px rgba(201, 166, 107, 0.4),
+    inset 0 1px 0 rgba(230, 210, 170, 0.6);
+  transform: translateY(-2px);
+}
+
+/* Downward golden indicator notch pointing to the portrait */
+.golden-quote-plaque::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 10px;
+  height: 10px;
+  background: rgba(10, 13, 20, 0.98);
+  border-right: 1.5px solid rgba(201, 166, 107, 0.65);
+  border-bottom: 1.5px solid rgba(201, 166, 107, 0.65);
+  z-index: 10;
+}
+
+.golden-quote-mark {
+  color: #c9a66b;
+  text-shadow: 0 0 14px rgba(201, 166, 107, 0.75);
+  font-family: "Cormorant Garamond", "Vazirmatn", Georgia, serif;
+  font-weight: 700;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.quote-tag-badge {
+  background: #07090e;
+  border: 1px solid rgba(201, 166, 107, 0.5);
+  color: #e6d2aa;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+}
