@@ -210,8 +210,8 @@ const FIGURES_DATA = [
     "portraitWebp": "images/hypatia.webp",
     "thumbWebp": "images/hypatia_thumb.webp",
     "fallbackPortrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Hypatia_portrait.png/600px-Hypatia_portrait.png",
-    "quoteEn": "“Reserve your right to think, for even to think wrongly is better than not to think at all.”",
-    "quoteFa": "«حق اندیشیدن را برای خود محفوظ بدار؛ چرا که حتی خطا اندیشیدن بهتر از نیندیشیدن است.»",
+    "quoteEn": null,
+    "quoteFa": null,
     "bioEn": "Renowned Neoplatonist philosopher, astronomer, and mathematician in Alexandria. Navigating a volatile power struggle between Imperial Prefect Orestes and Bishop Cyril, her public authority and refusal to conform to submissive gender norms made her a target of political assassination.",
     "bioFa": "فیلسوف نوافلاطونی، ستاره‌شناس و ریاضی‌دان برجسته اسکندریه. حضور او در کانون مشاوره‌های سیاسی و امتناع از پذیرش نقش‌های جنسیتی مطیع در میانه نزاع قدرت میان اورستس و سیریل، او را به هدف ترور سیاسی تبدیل کرد.",
     "psychEn": "High openness to experience, emotional self-regulation (Stoic/Neoplatonic discipline), and fearless intellectual assertiveness. Hostile chroniclers framed her public composure as \"arrogant enchantment.\"",
@@ -271,11 +271,11 @@ const FIGURES_DATA = [
     "stance": "hostile",
     "stanceLabelFa": "خصمانه و پسامرگ",
     "stanceLabelEn": "Hostile & Posthumous",
-    "quoteStatus": "apocryphal",
-    "quoteStatusLabelFa": "جعلی (البرت هابرد، ۱۹۰۸)",
-    "quoteStatusLabelEn": "Apocryphal (Elbert Hubbard, 1908)",
-    "quoteMarginaliaFa": "این نقل‌قول در هیچ منبع باستانی وجود ندارد؛ در سال ۱۹۰۸ توسط البرت هابرد در کتاب «سفرهای کوتاه» ابداع شده و نمونه‌ای از افسانه‌سازی مدرن است.",
-    "quoteMarginaliaEn": "Absent from antiquity. Invented in 1908 by Elbert Hubbard in Little Journeys to the Homes of Great Teachers."
+    "quoteStatus": "none",
+    "quoteStatusLabelFa": null,
+    "quoteStatusLabelEn": null,
+    "quoteMarginaliaFa": null,
+    "quoteMarginaliaEn": null
   },
   {
     "id": "wuzetian",

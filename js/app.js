@@ -355,46 +355,39 @@ function updateHeroSection(figureId) {
   const nextBtnPreview = document.getElementById('nextFigurePreviewName');
   if (nextBtnPreview) nextBtnPreview.textContent = currentLang === 'fa' ? nextFig.nameFa : nextFig.nameEn;
 
-  // Update Quote, Attribution & Struck Quote (Apocryphal quote deconstruction)
+  // Update Quote & Attribution (Omit fake/apocryphal quotes completely)
   const currentQuote = currentLang === 'fa' ? fig.quoteFa : fig.quoteEn;
   const cleanQuoteText = currentQuote ? currentQuote.replace(/^[«“"'\s]+|[»”"'\s]+$/g, '').trim() : '';
 
+  const heroQuoteCartouche = document.getElementById('heroQuoteCartouche');
   const heroQuoteTextEl = document.getElementById('heroQuoteText');
   const quoteStatusBadge = document.getElementById('heroQuoteStatusBadge');
   const quoteMarginaliaEl = document.getElementById('heroQuoteMarginalia');
+  const quoteAttributionEl = document.getElementById('heroQuoteAttribution');
 
-  if (fig.quoteStatus === 'apocryphal') {
-    // Hypatia's quote invented in 1908 by Elbert Hubbard
-    if (heroQuoteTextEl) {
-      heroQuoteTextEl.className = 'font-serif italic text-xs sm:text-sm leading-relaxed px-1 struck-quote';
-      heroQuoteTextEl.textContent = cleanQuoteText;
-    }
-    if (quoteStatusBadge) {
-      quoteStatusBadge.className = 'apocryphal-badge';
-      quoteStatusBadge.innerHTML = `✕ <span>${currentLang === 'fa' ? fig.quoteStatusLabelFa : fig.quoteStatusLabelEn}</span>`;
-    }
-    if (quoteMarginaliaEl) {
-      quoteMarginaliaEl.classList.remove('hidden');
-      quoteMarginaliaEl.textContent = currentLang === 'fa' ? fig.quoteMarginaliaFa : fig.quoteMarginaliaEn;
-    }
+  const isApocryphal = fig.quoteStatus === 'apocryphal';
+  const hasValidQuote = !isApocryphal && cleanQuoteText.length > 0;
+
+  if (!hasValidQuote) {
+    if (heroQuoteCartouche) heroQuoteCartouche.classList.add('hidden');
   } else {
+    if (heroQuoteCartouche) heroQuoteCartouche.classList.remove('hidden');
     if (heroQuoteTextEl) {
       heroQuoteTextEl.className = 'font-serif italic text-xs sm:text-sm text-paleGold leading-relaxed px-1';
       heroQuoteTextEl.textContent = cleanQuoteText;
     }
     if (quoteStatusBadge) {
-      quoteStatusBadge.className = 'documented-badge';
-      quoteStatusBadge.innerHTML = `✦ <span>${currentLang === 'fa' ? fig.quoteStatusLabelFa : fig.quoteStatusLabelEn}</span>`;
+      quoteStatusBadge.className = fig.quoteStatus === 'attributed' ? 'attributed-badge' : 'documented-badge';
+      const label = currentLang === 'fa' ? (fig.quoteStatusLabelFa || 'مستند تاریخی') : (fig.quoteStatusLabelEn || 'Documented');
+      quoteStatusBadge.innerHTML = `✦ <span>${label}</span>`;
     }
     if (quoteMarginaliaEl) {
       quoteMarginaliaEl.classList.add('hidden');
     }
-  }
-
-  const quoteAttributionEl = document.getElementById('heroQuoteAttribution');
-  if (quoteAttributionEl) {
-    const authorText = currentLang === 'fa' ? fig.quoteAuthorFa : fig.quoteAuthorEn;
-    quoteAttributionEl.textContent = authorText ? `— ${authorText}` : `— ${currentLang === 'fa' ? fig.nameFa : fig.nameEn}`;
+    if (quoteAttributionEl) {
+      const authorText = currentLang === 'fa' ? fig.quoteAuthorFa : fig.quoteAuthorEn;
+      quoteAttributionEl.textContent = authorText ? `— ${authorText}` : `— ${currentLang === 'fa' ? fig.nameFa : fig.nameEn}`;
+    }
   }
 
   // Update Main Portrait with fade
@@ -841,35 +834,29 @@ function openDossierModal() {
   const modalStanceText = document.getElementById('modalStanceText');
   if (modalStanceText) modalStanceText.textContent = currentLang === 'fa' ? fig.stanceLabelFa : fig.stanceLabelEn;
 
-  // Modal Quote & Struck Quote handling
+  // Modal Quote handling (Omit fake/apocryphal quotes completely)
+  const modalQuoteCard = document.getElementById('modalQuoteCard');
   const modalQuoteEl = document.getElementById('modalQuote');
   const modalStatusBadge = document.getElementById('modalQuoteStatusBadge');
   const modalMarginalia = document.getElementById('modalQuoteMarginalia');
 
   const currentQuote = currentLang === 'fa' ? fig.quoteFa : fig.quoteEn;
   const cleanQuoteText = currentQuote ? currentQuote.replace(/^[«“"'\s]+|[»”"'\s]+$/g, '').trim() : '';
+  const isApocryphal = fig.quoteStatus === 'apocryphal';
+  const hasValidQuote = !isApocryphal && cleanQuoteText.length > 0;
 
-  if (fig.quoteStatus === 'apocryphal') {
-    if (modalQuoteEl) {
-      modalQuoteEl.className = 'font-serif italic text-sm sm:text-base leading-relaxed struck-quote';
-      modalQuoteEl.textContent = cleanQuoteText;
-    }
-    if (modalStatusBadge) {
-      modalStatusBadge.className = 'apocryphal-badge';
-      modalStatusBadge.innerHTML = `✕ <span>${currentLang === 'fa' ? fig.quoteStatusLabelFa : fig.quoteStatusLabelEn}</span>`;
-    }
-    if (modalMarginalia) {
-      modalMarginalia.classList.remove('hidden');
-      modalMarginalia.textContent = currentLang === 'fa' ? fig.quoteMarginaliaFa : fig.quoteMarginaliaEn;
-    }
+  if (!hasValidQuote) {
+    if (modalQuoteCard) modalQuoteCard.classList.add('hidden');
   } else {
+    if (modalQuoteCard) modalQuoteCard.classList.remove('hidden');
     if (modalQuoteEl) {
       modalQuoteEl.className = 'font-serif italic text-paleGold text-sm sm:text-base leading-relaxed';
       modalQuoteEl.textContent = cleanQuoteText;
     }
     if (modalStatusBadge) {
-      modalStatusBadge.className = 'documented-badge';
-      modalStatusBadge.innerHTML = `✦ <span>${currentLang === 'fa' ? fig.quoteStatusLabelFa : fig.quoteStatusLabelEn}</span>`;
+      modalStatusBadge.className = fig.quoteStatus === 'attributed' ? 'attributed-badge' : 'documented-badge';
+      const label = currentLang === 'fa' ? (fig.quoteStatusLabelFa || 'مستند تاریخی') : (fig.quoteStatusLabelEn || 'Documented');
+      modalStatusBadge.innerHTML = `✦ <span>${label}</span>`;
     }
     if (modalMarginalia) {
       modalMarginalia.classList.add('hidden');
