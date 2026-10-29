@@ -1,0 +1,243 @@
+[
+  {
+    "id": "hysteria-hippocrates",
+    "year": -400,
+    "approx": true,
+    "yearDisplay": {
+      "fa": "حدود سده ۵–۴ پیش از میلاد",
+      "en": "c. 5th–4th Century BC"
+    },
+    "title": {
+      "fa": "متون بقراطی: هیسترا و رحم سرگردان",
+      "en": "Hippocratic Corpus: The Wandering Womb (Hystera)"
+    },
+    "thread": "histrionic",
+    "desc": {
+      "fa": "پیدایش اصطلاح «هیستری» بر پایه این فرضیه که رحم عضوی متحرک و تشنه باروری است که در صورت عدم ارضای زناشویی، در قفسه سینه حرکت کرده و موجب خفگی و اضطراب حاد می‌شود.",
+      "en": "Origins of 'hysteria'; anatomical myth positing that the uterus moved through the body causing suffocation unless restrained by marriage and childbearing."
+    },
+    "contemporaryFigures": [
+      "cleopatra"
+    ],
+    "citation": "Hippocratic Corpus, Diseases of Women"
+  },
+  {
+    "id": "galen-humors",
+    "year": 180,
+    "approx": true,
+    "yearDisplay": {
+      "fa": "سده دوم میلادی",
+      "en": "2nd Century AD"
+    },
+    "title": {
+      "fa": "پزشکی جالینوسی: نظریه اخلاط و مالیخولیا",
+      "en": "Galenic Medicine: Humoral Theory & Melancholia"
+    },
+    "thread": "neurosis",
+    "desc": {
+      "fa": "توصیف مالیخولیا و انفعالات روانی ناشی از غلبه سودای سیاه یا سردی و رطوبت مزاج زنانه؛ چارچوب مسلط پزشکی دنیای باستان و قرون وسطی تا سده‌ها بعد.",
+      "en": "Systematization of black bile (melancholia) and gendered humoral temperaments, framing female psychology as innately passive and unstable."
+    },
+    "contemporaryFigures": [
+      "hypatia"
+    ],
+    "citation": "Galen, On the Affected Parts"
+  },
+  {
+    "id": "malleus-maleficarum",
+    "year": 1486,
+    "approx": false,
+    "yearDisplay": {
+      "fa": "۱۴۸۶ میلادی",
+      "en": "1486 AD"
+    },
+    "title": {
+      "fa": "پتک جادوگران (Malleus Maleficarum)",
+      "en": "Malleus Maleficarum (The Hammer of Witches)"
+    },
+    "thread": "antisocial",
+    "desc": {
+      "fa": "انتشار رساله هنری کرامر و یاکوب اشپرنگر؛ پیوند سازمان‌یافته الهیاتی میان طبیعت زنانه، میل جنسی رام‌نشدنی، ارتداد و تسخیر شیطانی که به محاکمات گسترده تفتیش عقاید انجامید.",
+      "en": "Inquisitorial manual codified the demonization of female intellect and defiance as witchcraft and satanic treason."
+    },
+    "contemporaryFigures": [
+      "isabella",
+      "catherine"
+    ],
+    "citation": "Institoris & Sprenger, Malleus Maleficarum (1486)"
+  },
+  {
+    "id": "pinel-moral-treatment",
+    "year": 1793,
+    "approx": true,
+    "yearDisplay": {
+      "fa": "دهه ۱۷۹۰ میلادی",
+      "en": "1790s AD"
+    },
+    "title": {
+      "fa": "فیلیپ پینل و پیدایش درمان اخلاقی",
+      "en": "Philippe Pinel & Institutional Moral Treatment"
+    },
+    "thread": "neurosis",
+    "desc": {
+      "fa": "آغاز تفکیک بیماران روانی از مجرمان در آسایشگاه سالپتریر پاریس؛ تبدیل جنون از سرنوشت اهریمنی به بیماری بالینی قابل مداوا، همزمان با تولد روان‌پزشکی نهادی.",
+      "en": "Unchaining of psychiatric patients at the Salpêtrière; institutional birth of modern psychiatry as a specialized medical discipline."
+    },
+    "contemporaryFigures": [
+      "maryshelley"
+    ],
+    "citation": "Pinel, Traité médico-philosophique sur l'aliénation mentale (1801)"
+  },
+  {
+    "id": "prichard-moral-insanity",
+    "year": 1835,
+    "approx": false,
+    "yearDisplay": {
+      "fa": "۱۸۳۵ میلادی",
+      "en": "1835 AD"
+    },
+    "title": {
+      "fa": "جیمز پریچارد: مفهوم جنون اخلاقی",
+      "en": "James Cowles Prichard: 'Moral Insanity'"
+    },
+    "thread": "borderline",
+    "desc": {
+      "fa": "ابداع اصطلاح جنون اخلاقی برای توصیف افرادی که با وجود کارکرد عقلانی سالم، قواعد عرفی، عاطفی و اخلاقی جامعه را نقض می‌کنند؛ سنگ‌بنای اولیه برچسب‌زنی به زنان سرکش.",
+      "en": "Introduction of 'moral insanity' to categorize emotional defiance without intellectual impairment, heavily applied to non-conforming Victorian women."
+    },
+    "contemporaryFigures": [
+      "victoria",
+      "maryshelley"
+    ],
+    "citation": "Prichard, A Treatise on Insanity and Other Disorders Affecting the Mind (1835)"
+  },
+  {
+    "id": "charcot-salpetriere",
+    "year": 1878,
+    "approx": true,
+    "yearDisplay": {
+      "fa": "دهه ۱۸۷۰–۱۸۸۰ میلادی",
+      "en": "1870s–1880s AD"
+    },
+    "title": {
+      "fa": "ژان-مارتن شارکو و تئاتر هیستری در سالپتریر",
+      "en": "Jean-Martin Charcot: Hysteria as Staged Spectacle"
+    },
+    "thread": "histrionic",
+    "desc": {
+      "fa": "نمایش‌های بالینی هفتگی شارکو در پاریس و عکاسی از حملات تشنجی زنان بیمار؛ تعریف هیستری به عنوان نقصی عصبی-نمایشی که بر ناخودآگاه پزشکی قرن نوزدهم سایه انداخت.",
+      "en": "Public Tuesday lectures and medical photography turning female hysteria into a codified performative spectacle."
+    },
+    "contemporaryFigures": [
+      "victoria"
+    ],
+    "citation": "Charcot, Leçons sur les maladies du système nerveux (1885)"
+  },
+  {
+    "id": "freud-breuer-studies",
+    "year": 1895,
+    "approx": false,
+    "yearDisplay": {
+      "fa": "۱۸۹۵ میلادی",
+      "en": "1895 AD"
+    },
+    "title": {
+      "fa": "فروید و بروئر: پژوهش‌هایی در باب هیستری",
+      "en": "Freud & Breuer: Studies on Hysteria"
+    },
+    "thread": "histrionic",
+    "desc": {
+      "fa": "تولد روان‌کاوی؛ تبیین نشانه‌های جسمانی هیستری به عنوان نمادهای سرکوب تروماهای جنسی و عاطفی حل‌نشده در ناخودآگاه، و بنیان‌گذاری شیوه سخن‌درمانی.",
+      "en": "Foundational text of psychoanalysis; reinterpreted hysterical somatic symptoms as symbolic conversions of repressed psychological trauma."
+    },
+    "contemporaryFigures": [
+      "victoria",
+      "beauvoir"
+    ],
+    "citation": "Freud & Breuer, Studien über Hysterie (1895)"
+  },
+  {
+    "id": "dsm-1-publication",
+    "year": 1952,
+    "approx": false,
+    "yearDisplay": {
+      "fa": "۱۹۵۲ میلادی",
+      "en": "1952 AD"
+    },
+    "title": {
+      "fa": "انتشار اولین ویرایش راهنمای تشخیصی (DSM-I)",
+      "en": "Publication of the First DSM (DSM-I)"
+    },
+    "thread": "neurosis",
+    "desc": {
+      "fa": "تلاش انجمن روان‌پزشکی آمریکا برای استانداردسازی بیماری‌ها پس از جنگ جهانی دوم؛ طبقه‌بندی اختلالات تحت عنوان 'واکنش‌های شخصیتی' متأثر از آدولف مایر.",
+      "en": "First official American psychiatric nomenclature standardizing diagnostic criteria following WWII military psychiatric observations."
+    },
+    "contemporaryFigures": [
+      "beauvoir"
+    ],
+    "citation": "American Psychiatric Association, Diagnostic and Statistical Manual: Mental Disorders (1952)"
+  },
+  {
+    "id": "dsm-3-revolution",
+    "year": 1980,
+    "approx": false,
+    "yearDisplay": {
+      "fa": "۱۹۸۰ میلادی",
+      "en": "1980 AD"
+    },
+    "title": {
+      "fa": "انقلاب DSM-III: حذف هیستری و ظهور Histrionic و Borderline",
+      "en": "DSM-III: Removal of Hysteria, Creation of Histrionic & BPD"
+    },
+    "thread": "borderline",
+    "desc": {
+      "fa": "حذف رسمی برچسب چندهزارساله هیستری از متون تشخیصی و تولد اختلالات شخصیت نمایشی (Histrionic) و مرزی (Borderline) بر پایه الگوهای رفتاری مقوله‌ای صلب.",
+      "en": "Historic paradigm shift removing the classical term 'hysteria', introducing categorical criteria for Histrionic and Borderline Personality Disorders."
+    },
+    "contemporaryFigures": [
+      "diana"
+    ],
+    "citation": "APA, DSM-III (1980)"
+  },
+  {
+    "id": "dsm-5-ampd",
+    "year": 2013,
+    "approx": false,
+    "yearDisplay": {
+      "fa": "۲۰۱۳ میلادی",
+      "en": "2013 AD"
+    },
+    "title": {
+      "fa": "مدل ابعادی جایگزین (AMPD - DSM-5 Section III)",
+      "en": "DSM-5 Alternative Model for Personality Disorders (AMPD)"
+    },
+    "thread": "narcissistic",
+    "desc": {
+      "fa": "انتقال بنیادین از تشخیص‌های صلب 'سیاه و سفید' به ابعاد پیوسته شخصیتی (عاطفه منفی، گسستگی، خصومت، مهارگسیختگی، روان‌پریش‌خویی) برای ممانعت از برچسب‌زنی ایستا.",
+      "en": "Transitional framework in Section III replacing all-or-nothing categorical labels with continuous dimensional trait domains."
+    },
+    "contemporaryFigures": [],
+    "citation": "APA, DSM-5 Section III (2013)"
+  },
+  {
+    "id": "icd-11-dimensional",
+    "year": 2022,
+    "approx": false,
+    "yearDisplay": {
+      "fa": "۲۰۲۲ میلادی",
+      "en": "2022 AD"
+    },
+    "title": {
+      "fa": "اجرای رسمی ICD-11: الغای اختلالات شخصیتی مقوله‌ای",
+      "en": "WHO ICD-11: Complete Dimensional Overhaul"
+    },
+    "thread": "neurosis",
+    "desc": {
+      "fa": "سازمان بهداشت جهانی تقریباً تمامی دسته‌های سنتی اختلال شخصیت را حذف کرد و سنجش شدت کارکرد خویشتن و صفات پیوسته را جایگزین برچسب‌های استیگماساز گذشته ساخت.",
+      "en": "WHO's official diagnostic manual completely abandons historic categories in favor of dimensional severity and trait domain specifiers."
+    },
+    "contemporaryFigures": [],
+    "citation": "World Health Organization, ICD-11 (2022)"
+  }
+]
