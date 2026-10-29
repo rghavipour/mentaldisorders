@@ -108,6 +108,8 @@ const FIGURES_DATA = [
       "Ambition"
     ],
     "portrait": "images/hypatia.jpg",
+    "portraitWebp": "images/hypatia.webp",
+    "thumbWebp": "images/hypatia_thumb.webp",
     "fallbackPortrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Hypatia_portrait.png/600px-Hypatia_portrait.png",
     "quoteEn": "“Reserve your right to think, for even to think wrongly is better than not to think at all.”",
     "quoteFa": "«حق اندیشیدن را برای خود محفوظ بدار؛ چرا که حتی خطا اندیشیدن بهتر از نیندیشیدن است.»",
@@ -174,6 +176,8 @@ const FIGURES_DATA = [
       "Betrayal"
     ],
     "portrait": "images/cleopatra.jpg",
+    "portraitWebp": "images/cleopatra.webp",
+    "thumbWebp": "images/cleopatra_thumb.webp",
     "fallbackPortrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Cleopatra_-_John_William_Waterhouse.jpg/600px-Cleopatra_-_John_William_Waterhouse.jpg",
     "quoteEn": "“I will not be triumphed over.”",
     "quoteFa": "«من هرگز به عنوان غنیمت در رژه پیروزی دشمن به نمایش گذاشته نخواهم شد.»",
@@ -240,6 +244,8 @@ const FIGURES_DATA = [
       "Legacy"
     ],
     "portrait": "images/wuzetian.jpg",
+    "portraitWebp": "images/wuzetian.webp",
+    "thumbWebp": "images/wuzetian_thumb.webp",
     "fallbackPortrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Wu_Zetian_portrait.jpg/600px-Wu_Zetian_portrait.jpg",
     "quoteEn": "“Leaving my monument blank allows future generations to judge my reign for themselves.”",
     "quoteFa": "«لوح آرامگاهم را بی‌نوشته بگذارید تا آیندگان خود درباره کارنامه من داوری کنند.»",
@@ -305,6 +311,8 @@ const FIGURES_DATA = [
       "Legacy"
     ],
     "portrait": "images/isabella.jpg",
+    "portraitWebp": "images/isabella.webp",
+    "thumbWebp": "images/isabella_thumb.webp",
     "fallbackPortrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Isabel_la_Cat%C3%B3lica-2.jpg/600px-Isabel_la_Cat%C3%B3lica-2.jpg",
     "quoteEn": "“In the service of God and the Crown, hesitation is the gravest sin.”",
     "quoteFa": "«در خدمت به خداوند و تاج‌وتخت، تردید بزرگ‌ترین گناه است.»",
@@ -369,6 +377,8 @@ const FIGURES_DATA = [
       "Ambition"
     ],
     "portrait": "images/catherine.jpg",
+    "portraitWebp": "images/catherine.webp",
+    "thumbWebp": "images/catherine_thumb.webp",
     "fallbackPortrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Catherine_de_Medici_by_Francois_Clouet.jpg/600px-Catherine_de_Medici_by_Francois_Clouet.jpg",
     "quoteEn": "“One must sew the skin of the fox to that of the lion when strength alone fails.”",
     "quoteFa": "«هنگامی که زور بازوی شیر کافی نیست، باید پوست روباه را به آن دوخت.»",
@@ -433,6 +443,8 @@ const FIGURES_DATA = [
       "Love & Relationships"
     ],
     "portrait": "images/maryshelley.jpg",
+    "portraitWebp": "images/maryshelley.webp",
+    "thumbWebp": "images/maryshelley_thumb.webp",
     "fallbackPortrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Mary_Wollstonecraft_Shelley_Rothwell.tif/lossy-page1-600px-Mary_Wollstonecraft_Shelley_Rothwell.tif.jpg",
     "quoteEn": "“Beware; for I am fearless, and therefore powerful.”",
     "quoteFa": "«برحذر باش؛ چرا که من بی‌باکم و از همین رو قدرتمند.»",
@@ -498,6 +510,8 @@ const FIGURES_DATA = [
       "Legacy"
     ],
     "portrait": "images/victoria.jpg",
+    "portraitWebp": "images/victoria.webp",
+    "thumbWebp": "images/victoria_thumb.webp",
     "fallbackPortrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Queen_Victoria_by_Bassano.jpg/600px-Queen_Victoria_by_Bassano.jpg",
     "quoteEn": "“We are not interested in the possibilities of defeat; they do not exist.”",
     "quoteFa": "«ما علاقه‌ای به بررسی احتمال شکست نداریم؛ چنین چیزی وجود ندارد.»",
@@ -563,6 +577,8 @@ const FIGURES_DATA = [
       "Ambition"
     ],
     "portrait": "images/beauvoir.jpg",
+    "portraitWebp": "images/beauvoir.webp",
+    "thumbWebp": "images/beauvoir_thumb.webp",
     "fallbackPortrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Simone_de_Beauvoir2.png/600px-Simone_de_Beauvoir2.png",
     "quoteEn": "“One is not born, but rather becomes, a woman.”",
     "quoteFa": "«انسان زن زاده نمی‌شود، بلکه زن می‌شود.»",
@@ -629,6 +645,8 @@ const FIGURES_DATA = [
       "Legacy"
     ],
     "portrait": "images/diana.jpg",
+    "portraitWebp": "images/diana.webp",
+    "thumbWebp": "images/diana_thumb.webp",
     "fallbackPortrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Diana%2C_Princess_of_Wales_1997_%282%29.jpg/600px-Diana%2C_Princess_of_Wales_1997_%282%29.jpg",
     "quoteEn": "“Nothing brings me more happiness than trying to help the most vulnerable people in society.”",
     "quoteFa": "«هیچ‌چیز بیش از تلاش برای یاری رساندن به آسیب‌پذیرترین انسان‌های جامعه مرا شادمان نمی‌کند.»",
@@ -693,6 +711,8 @@ const FIGURES_DATA = [
       "Power"
     ],
     "portrait": "images/contemporary.jpg",
+    "portraitWebp": "images/contemporary.webp",
+    "thumbWebp": "images/contemporary_thumb.webp",
     "quoteEn": "“Modern psychiatry moves from rigid labels to understanding the continuum of human adaptation and trauma.”",
     "quoteFa": "«روان‌پزشکی معاصر از برچسب‌های ایستا فاصله گرفته و به درک پیوستار سازگاری، تروما و قدرت نزدیک شده است.»",
     "bioEn": "In the 21st century, both ICD-11 and DSM-5-TR (Alternative Model for Personality Disorders) have shifted toward dimensional trait models—recognizing how complex PTSD, gender norms, and systemic power shape human behavior across history.",

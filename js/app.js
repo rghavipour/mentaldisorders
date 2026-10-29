@@ -9,15 +9,64 @@ let activeThemeFilter = "All";
 let activePeriodFilter = "All";
 let activeSearchQuery = "";
 let highlightedTrait = null;
+let searchDebounceTimer = null;
 
     function initArchive() {
       // Apply initial language (Persian default as requested, with 1-click English toggle)
       setLanguage(currentLang);
 
-      // Search input listener
-      document.getElementById('searchInput').addEventListener('input', (e) => {
-        activeSearchQuery = e.target.value.trim().toLowerCase();
-        renderTimeline();
+      // Debounced search input listener
+      const searchInput = document.getElementById('searchInput');
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          clearTimeout(searchDebounceTimer);
+          searchDebounceTimer = setTimeout(() => {
+            activeSearchQuery = e.target.value.trim().toLowerCase();
+            renderTimeline();
+          }, 120);
+        });
+      }
+
+      // Modal backdrop click handlers (close modal when clicking outside dialog card)
+      ['dossierModal', 'methodologyModal', 'addCaseModal'].forEach(modalId => {
+        const modalEl = document.getElementById(modalId);
+        if (modalEl) {
+          modalEl.addEventListener('click', (e) => {
+            if (e.target === modalEl) {
+              modalEl.classList.add('hidden');
+              modalEl.classList.remove('flex');
+            }
+          });
+        }
+      });
+
+      // Global Keyboard Navigation (Arrow Keys for Timeline, Escape to dismiss modals)
+      window.addEventListener('keydown', (e) => {
+        const activeTag = document.activeElement ? document.activeElement.tagName.toUpperCase() : '';
+        if (activeTag === 'INPUT' || activeTag === 'TEXTAREA' || activeTag === 'SELECT') {
+          if (e.key === 'Escape') document.activeElement.blur();
+          return;
+        }
+
+        if (e.key === 'Escape') {
+          closeDossierModal();
+          closeMethodologyModal();
+          closeAddCaseModal();
+          return;
+        }
+
+        const isDossierOpen = !document.getElementById('dossierModal').classList.contains('hidden');
+        const isMethodOpen = !document.getElementById('methodologyModal').classList.contains('hidden');
+        const isAddOpen = !document.getElementById('addCaseModal').classList.contains('hidden');
+        if (isDossierOpen || isMethodOpen || isAddOpen) return;
+
+        if (e.key === 'ArrowRight') {
+          e.preventDefault();
+          cycleCharacter(currentLang === 'fa' ? -1 : 1);
+        } else if (e.key === 'ArrowLeft') {
+          e.preventDefault();
+          cycleCharacter(currentLang === 'fa' ? 1 : -1);
+        }
       });
     }
 
@@ -136,10 +185,13 @@ let highlightedTrait = null;
             <div>
               <div class="arch-image-wrapper h-[132px] w-full bg-obsidian mb-3">
                 <img 
-                  src="${fig.portrait}" 
+                  src="${fig.thumbWebp || fig.portrait}" 
                   onerror="this.onerror=null;this.src='${fallback}';"
                   alt="${name}" 
+                  width="176"
+                  height="132"
                   loading="lazy"
+                  decoding="async"
                   class="w-full h-full object-cover object-top painterly-img"
                 />
                 <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent opacity-80"></div>
@@ -229,21 +281,35 @@ let highlightedTrait = null;
 
       // Update Portraits
       const mainImg = document.getElementById('heroMainPortrait');
-      const fallback = fig.fallbackPortrait || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=700&q=80';
+      const fallback = fig.fallbackPortrait || fig.portrait;
       mainImg.style.opacity = '0.3';
       setTimeout(() => {
-        mainImg.onerror = function() { this.onerror = null; this.src = fallback; };
-        mainImg.src = fig.portrait;
+        mainImg.onerror = function() { this.onerror = null; this.src = fig.portrait || fallback; };
+        mainImg.src = fig.portraitWebp || fig.portrait;
         mainImg.style.opacity = '1';
       }, 150);
 
       const leftGhost = document.getElementById('heroGhostLeft');
-      leftGhost.onerror = function() { this.onerror = null; this.src = prevFig.fallbackPortrait || fallback; };
-      leftGhost.src = prevFig.portrait;
+      if (leftGhost) {
+        leftGhost.onerror = function() { this.onerror = null; this.src = prevFig.portrait || fallback; };
+        leftGhost.src = prevFig.portraitWebp || prevFig.portrait;
+      }
 
       const rightGhost = document.getElementById('heroGhostRight');
-      rightGhost.onerror = function() { this.onerror = null; this.src = nextFig.fallbackPortrait || fallback; };
-      rightGhost.src = nextFig.portrait;
+      if (rightGhost) {
+        rightGhost.onerror = function() { this.onerror = null; this.src = nextFig.portrait || fallback; };
+        rightGhost.src = nextFig.portraitWebp || nextFig.portrait;
+      }
+
+      // Background Preload of adjacent figures for instant carousel switching
+      if (nextFig) {
+        const pNext = new Image();
+        pNext.src = nextFig.portraitWebp || nextFig.portrait;
+      }
+      if (prevFig) {
+        const pPrev = new Image();
+        pPrev.src = prevFig.portraitWebp || prevFig.portrait;
+      }
 
       // Render Trait Pills in Hero
       const pillsContainer = document.getElementById('heroTraitPills');
@@ -331,8 +397,8 @@ let highlightedTrait = null;
       const fig = FIGURES_DATA.find(f => f.id === selectedFigureId) || FIGURES_DATA[0];
       const portraitEl = document.getElementById('modalPortrait');
       if (portraitEl) {
-        portraitEl.onerror = function() { this.onerror = null; this.src = fig.fallbackPortrait || fig.portrait; };
-        portraitEl.src = fig.portrait;
+        portraitEl.onerror = function() { this.onerror = null; this.src = fig.portrait || fig.fallbackPortrait; };
+        portraitEl.src = fig.portraitWebp || fig.portrait;
       }
       document.getElementById('modalEra').textContent = fig.period;
       document.getElementById('modalDates').textContent = currentLang === 'fa' ? fig.datesFa : fig.datesEn;

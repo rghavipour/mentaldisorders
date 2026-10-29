@@ -4,11 +4,42 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Women, Power & Personality — Historical & Psychological Archive</title>
+  
+  <!-- SEO & Social Sharing Metadata -->
+  <meta name="description" content="A curated bilingual digital humanities archive exploring the intersection of power, psychological traits, and gender norms across history through 10 iconic women." />
+  <meta name="keywords" content="history, psychology, DSM-5-TR, women in power, Cleopatra, Hypatia, Wu Zetian, psychobiography, digital humanities" />
+  <meta name="author" content="Reza Ghavipour" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#07090e" />
+  <link rel="canonical" href="https://rghavipour.github.io/mentaldisorders/" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://rghavipour.github.io/mentaldisorders/" />
+  <meta property="og:title" content="Women, Power & Personality — Historical & Psychological Archive" />
+  <meta property="og:description" content="A curated digital humanities archive examining female power, statecraft, and psychological traits across centuries." />
+  <meta property="og:image" content="https://rghavipour.github.io/mentaldisorders/images/cleopatra.jpg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://rghavipour.github.io/mentaldisorders/" />
+  <meta name="twitter:title" content="Women, Power & Personality — Historical & Psychological Archive" />
+  <meta name="twitter:description" content="A curated digital humanities archive examining female power, statecraft, and psychological traits across centuries." />
+  <meta name="twitter:image" content="https://rghavipour.github.io/mentaldisorders/images/cleopatra.jpg" />
+
+  <!-- Inline Vector Favicon -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%2307090e' stroke='%23c9a66b' stroke-width='4'/%3E%3Ctext x='50' y='67' font-size='52' font-family='serif' fill='%23c9a66b' text-anchor='middle' font-weight='bold'%3EW%3C/text%3E%3C/svg%3E" type="image/svg+xml" />
+
+  <!-- Performance & Preload Optimization -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="image" href="images/cleopatra.webp" type="image/webp" fetchpriority="high" />
+
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Google Fonts: Cormorant Garamond (Classical Serif), Plus Jakarta Sans (Clean UI), Vazirmatn (Persian) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <script>
@@ -241,13 +272,21 @@
           <img 
             id="heroGhostLeft"
             src="" 
-            alt="" 
+            alt="Previous Figure Silhouette" 
+            width="144"
+            height="192"
+            loading="lazy"
+            decoding="async"
             class="absolute -left-10 sm:-left-14 top-10 w-36 h-48 object-cover rounded-full opacity-20 grayscale contrast-125 mix-blend-screen pointer-events-none hidden sm:block"
           />
           <img 
             id="heroGhostRight"
             src="" 
-            alt="" 
+            alt="Next Figure Silhouette" 
+            width="144"
+            height="192"
+            loading="lazy"
+            decoding="async"
             class="absolute -right-8 sm:-right-12 bottom-8 w-36 h-48 object-cover rounded-full opacity-20 grayscale contrast-125 mix-blend-screen pointer-events-none hidden sm:block"
           />
 
@@ -255,12 +294,16 @@
           <div class="relative w-[270px] h-[270px] sm:w-[350px] sm:h-[350px] rounded-full overflow-hidden border border-antiqueGold/40 shadow-[0_0_50px_rgba(0,0,0,0.9)] bg-midnight">
             <img 
               id="heroMainPortrait"
-              src="" 
+              src="images/cleopatra.webp" 
               alt="Featured Historical Portrait" 
+              width="350"
+              height="350"
+              fetchpriority="high"
+              decoding="async"
               class="w-full h-full object-cover object-top painterly-img transition-all duration-700"
             />
             <!-- Vignette gradient overlay -->
-            <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-obsidian/30"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-obsidian/30 pointer-events-none"></div>
           </div>
 
         </div>
@@ -478,11 +521,18 @@
       <div class="lg:col-span-3 rounded-xl bg-slateGlass border border-white/[0.08] overflow-hidden flex items-stretch relative group">
         <!-- Classical bust / sculpture visual -->
         <div class="w-2/5 relative overflow-hidden bg-midnight">
-          <img 
-            src="https://images.unsplash.com/photo-1544967082-d9d25d867d66?auto=format&fit=crop&w=500&q=80" 
-            alt="Classical Sculpture" 
-            class="w-full h-full object-cover grayscale contrast-125 opacity-65 group-hover:scale-105 transition duration-700"
-          />
+          <picture>
+            <source srcset="images/sculpture.webp" type="image/webp" />
+            <img 
+              src="images/sculpture.jpg" 
+              alt="Classical Sculpture" 
+              width="200"
+              height="280"
+              loading="lazy"
+              decoding="async"
+              class="w-full h-full object-cover grayscale contrast-125 opacity-65 group-hover:scale-105 transition duration-700"
+            />
+          </picture>
           <div class="absolute inset-0 bg-gradient-to-r from-transparent to-obsidian/95"></div>
         </div>
 
@@ -519,7 +569,7 @@
   </main>
 
   <!-- ================= MODAL 1: DEEP DIVE PSYCHOLOGICAL & HISTORICAL DOSSIER ================= -->
-  <div id="dossierModal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden items-center justify-center p-4">
+  <div id="dossierModal" role="dialog" aria-modal="true" aria-labelledby="modalName" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden items-center justify-center p-4">
     <div class="bg-midnight border border-antiqueGold/40 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl p-6 lg:p-8 relative">
       
       <button onclick="closeDossierModal()" class="modal-close-btn w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 text-stone-300 hover:text-white" aria-label="Close modal">
@@ -531,7 +581,7 @@
         <!-- Left Portrait & Quick Metadata -->
         <div class="md:col-span-4 space-y-4">
           <div class="arch-image-wrapper border border-antiqueGold/40 aspect-[3/4] bg-obsidian">
-            <img id="modalPortrait" src="" alt="" class="w-full h-full object-cover painterly-img" />
+            <img id="modalPortrait" src="" alt="Historical Figure Portrait" width="300" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover painterly-img" />
           </div>
 
           <div class="p-3.5 rounded-xl bg-white/[0.03] border border-white/10 space-y-2 text-xs">
@@ -615,7 +665,7 @@
   </div>
 
   <!-- ================= MODAL 2: SCIENTIFIC METHODOLOGY NOTE ================= -->
-  <div id="methodologyModal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden items-center justify-center p-4">
+  <div id="methodologyModal" role="dialog" aria-modal="true" aria-labelledby="methodModalTitle" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden items-center justify-center p-4">
     <div class="bg-midnight border border-antiqueGold/40 rounded-2xl max-w-2xl w-full p-6 lg:p-8 relative space-y-4">
       <button onclick="closeMethodologyModal()" class="modal-close-btn w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 text-stone-300 hover:text-white" aria-label="Close modal">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
@@ -623,7 +673,7 @@
       
       <div class="pe-12">
         <span class="text-[10px] uppercase tracking-[0.25em] text-antiqueGold font-semibold">EPISTEMOLOGICAL FRAMEWORK</span>
-        <h2 class="font-serif text-3xl text-white mt-1" data-i18n="methodModalTitle">Why "Women, Power & Personality"?</h2>
+        <h2 id="methodModalTitle" class="font-serif text-3xl text-white mt-1" data-i18n="methodModalTitle">Why "Women, Power & Personality"?</h2>
       </div>
       
       <div class="space-y-3 text-xs sm:text-sm text-stone-300 leading-relaxed">
@@ -641,7 +691,7 @@
   </div>
 
   <!-- ================= MODAL 3: ADD NEW HISTORICAL CASE STUDY ================= -->
-  <div id="addCaseModal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden items-center justify-center p-4">
+  <div id="addCaseModal" role="dialog" aria-modal="true" aria-labelledby="addModalTitle" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden items-center justify-center p-4">
     <div class="bg-midnight border border-antiqueGold/40 rounded-2xl max-w-lg w-full p-6 relative space-y-4">
       <button onclick="closeAddCaseModal()" class="modal-close-btn w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 text-stone-300 hover:text-white" aria-label="Close modal">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
@@ -649,7 +699,7 @@
       
       <div class="pe-12">
         <span class="text-[10px] uppercase tracking-[0.22em] text-antiqueGold font-semibold">RESEARCH CONTRIBUTION</span>
-        <h3 class="font-serif text-2xl text-white mt-1" data-i18n="addModalTitle">Add Figure to Historical Timeline</h3>
+        <h3 id="addModalTitle" class="font-serif text-2xl text-white mt-1" data-i18n="addModalTitle">Add Figure to Historical Timeline</h3>
       </div>
 
       <form id="addCaseForm" onsubmit="handleAddCase(event)" class="space-y-3 text-xs">

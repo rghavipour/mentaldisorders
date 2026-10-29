@@ -41,24 +41,19 @@ The repository is organized cleanly for immediate deployment on **GitHub Pages**
 
 ```text
 mentaldisorders/
-├── index.html          # Main HTML5 entry point (Semantic UI, Hero, Timeline, Modals)
+├── .nojekyll           # Bypasses Jekyll build on GitHub Pages
+├── index.html          # Main HTML5 entry point (Semantic UI, Hero, Timeline, Modals, SEO/A11y)
 ├── css/
-│   └── styles.css      # Museum styling, glowing timeline axis, arch cards, halo effects
+│   └── styles.css      # Museum styling, glowing timeline axis, arch cards, halo effects, GPU acceleration
 ├── js/
-│   ├── data.js         # Complete bilingual (FA/EN) dataset, DSM-5 traits, quotes, historical sources
-│   └── app.js          # Controller logic, language switcher, timeline scroll, radar chart, modals
-├── images/             # Classical oil painting portraits (High resolution 3:4 aspect ratio)
-│   ├── hypatia.jpg
-│   ├── cleopatra.jpg
-│   ├── wuzetian.jpg
-│   ├── isabella.jpg
-│   ├── catherine.jpg
-│   ├── maryshelley.jpg
-│   ├── victoria.jpg
-│   ├── beauvoir.jpg
-│   ├── diana.jpg
-│   └── contemporary.jpg
-└── README.md           # Documentation & GitHub Pages deployment guide
+│   ├── data.js         # Complete bilingual (FA/EN) dataset, DSM-5 traits, WebP/JPG paths, academic sources
+│   └── app.js          # Controller logic, debounced search, keyboard navigation, carousel, modals
+├── images/             # Classical oil portraits (WebP 80% compression, thumbnails & JPG fallbacks)
+│   ├── *.webp          # Modern compressed high-res portraits (~100-190KB)
+│   ├── *_thumb.webp    # Ultra-lightweight timeline thumbnails (~18-38KB)
+│   ├── *.jpg           # Progressive JPEG fallbacks
+│   └── sculpture.webp  # Self-hosted classical bust visual (0 external CDN dependencies)
+└── README.md           # Documentation, performance benchmarks & deployment guide
 ```
 
 ---

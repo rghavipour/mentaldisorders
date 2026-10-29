@@ -29,7 +29,9 @@ body {
   border-radius: 110px 110px 14px 14px;
   background: linear-gradient(180deg, rgba(20, 26, 38, 0.85) 0%, rgba(10, 13, 20, 0.95) 100%);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, box-shadow;
+  transform: translateZ(0);
 }
 
 .arch-card:hover {
@@ -244,8 +246,36 @@ body {
 .timeline-arrow-btn {
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
+  will-change: transform, box-shadow;
+  transform: translateZ(0);
 }
 
 .timeline-arrow-btn:hover {
   box-shadow: 0 0 22px rgba(201, 166, 107, 0.45), 0 8px 24px rgba(0, 0, 0, 0.95);
+}
+
+/* Accessible Focus States */
+:focus-visible {
+  outline: 2px solid #c9a66b;
+  outline-offset: 2px;
+}
+
+/* Performance & Touch Scroll Optimization */
+#timelineContainer {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  overscroll-behavior-x: contain;
+}
+
+/* Reduced Motion Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .hero-halo::before {
+    animation: none;
+  }
 }
