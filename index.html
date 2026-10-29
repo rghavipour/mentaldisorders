@@ -223,24 +223,33 @@
 
           <!-- Interactive Psychobiographical Compass (Radar Chart + Progress Bars) -->
           <div class="psychobiographical-compass p-4 rounded-xl">
-            <div class="flex items-center justify-between pb-2.5 border-b border-white/[0.08]">
+            <div class="flex items-center justify-between pb-2 border-b border-white/[0.08]">
               <div class="flex items-center gap-2">
                 <span class="text-antiqueGold text-xs">✦</span>
                 <h3 class="text-xs uppercase tracking-wider text-stone-200 font-medium" data-i18n="compassTitle">
                   قطب‌نمای ابعادی روان‌شناختی (الگوی AMPD)
                 </h3>
               </div>
-              <span class="text-[10px] text-stone-400 font-mono">5-DIMENSIONAL SPECTRUM</span>
+              <span class="text-[10px] text-stone-400 font-mono">5-DIMENSIONAL COMPASS</span>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-12 gap-4 items-center pt-3">
-              <!-- Radar Chart SVG Container -->
-              <div class="sm:col-span-5 flex justify-center">
-                <svg id="heroRadarSvg" viewBox="0 0 200 200" class="w-32 h-32 sm:w-36 sm:h-36 overflow-visible"></svg>
+            <!-- Prominent Visual Axis Guide for the Top & Vertices -->
+            <div class="bg-white/[0.03] border border-white/[0.06] rounded-lg px-3 py-1.5 mt-2.5 flex items-center justify-between text-[10px] text-stone-300">
+              <div class="flex items-center gap-1.5">
+                <span class="text-traitBlue font-bold">↑</span>
+                <span class="font-medium text-stone-200" data-i18n="compassTopNotice">ضلع بالا: عاملیت و اقتدار فکری (Sovereign Agency)</span>
+              </div>
+              <span class="text-stone-400 text-[9px] font-mono">۵ جهت شخصیتی</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center pt-3">
+              <!-- Radar Chart SVG Container with Full Labels -->
+              <div class="md:col-span-7 flex justify-center">
+                <svg id="heroRadarSvg" viewBox="0 0 320 270" class="w-full max-w-[300px] h-auto overflow-visible select-none"></svg>
               </div>
 
               <!-- Trait Breakdown Bars -->
-              <div class="sm:col-span-7 space-y-2" id="heroTraitBars">
+              <div class="md:col-span-5 space-y-2 pt-1" id="heroTraitBars">
                 <!-- Populated dynamically by JS -->
               </div>
             </div>

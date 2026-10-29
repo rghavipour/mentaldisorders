@@ -422,17 +422,18 @@ function renderHeroRadar(fig) {
   const svg = document.getElementById('heroRadarSvg');
   if (!svg) return;
 
-  const cx = 100;
-  const cy = 100;
+  const cx = 160;
+  const cy = 138;
   const R = 68;
+  const R_label = 96;
   const scores = fig.radarScores || { agency: 85, realpolitik: 80, affectivity: 75, nonconformity: 80, resilience: 85 };
 
   const dimensions = [
-    { key: 'agency', score: scores.agency || 85 },
-    { key: 'realpolitik', score: scores.realpolitik || 80 },
-    { key: 'affectivity', score: scores.affectivity || 75 },
-    { key: 'nonconformity', score: scores.nonconformity || 80 },
-    { key: 'resilience', score: scores.resilience || 85 }
+    { key: 'agency', score: scores.agency || 85, nameFa: 'عاملیت و اقتدار', nameEn: 'Sovereign Agency', color: '#4a88c7', icon: '✦', axisNoticeFa: 'ضلع بالا' },
+    { key: 'realpolitik', score: scores.realpolitik || 80, nameFa: 'مصلحت سیاسی', nameEn: 'Realpolitik', color: '#9469bb', icon: '♟', axisNoticeFa: 'ضلع راست بالا' },
+    { key: 'affectivity', score: scores.affectivity || 75, nameFa: 'شور عاطفی', nameEn: 'Affective Intensity', color: '#c85a48', icon: '♥', axisNoticeFa: 'ضلع راست پایین' },
+    { key: 'nonconformity', score: scores.nonconformity || 80, nameFa: 'هنجارشکنی', nameEn: 'Non-Conformity', color: '#3ea376', icon: '⚡', axisNoticeFa: 'ضلع چپ پایین' },
+    { key: 'resilience', score: scores.resilience || 85, nameFa: 'تاب‌آوری', nameEn: 'Resilience', color: '#d4af37', icon: '🛡', axisNoticeFa: 'ضلع چپ بالا' }
   ];
 
   // Calculate polygon points
@@ -446,44 +447,103 @@ function renderHeroRadar(fig) {
 
   // Concentric pentagon guide rings (25%, 50%, 75%, 100%)
   let ringsHtml = '';
-  [0.25, 0.5, 0.75, 1.0].forEach(factor => {
+  [0.25, 0.5, 0.75, 1.0].forEach((factor, idx) => {
     const ringPts = [0, 1, 2, 3, 4].map(i => {
       const angle = -Math.PI / 2 + i * (2 * Math.PI / 5);
       const r = R * factor;
       return `${(cx + r * Math.cos(angle)).toFixed(1)},${(cy + r * Math.sin(angle)).toFixed(1)}`;
     }).join(' ');
-    ringsHtml += `<polygon points="${ringPts}" fill="none" stroke="rgba(205, 164, 94, 0.14)" stroke-width="0.8" stroke-dasharray="2 2" />`;
+    const isOuter = idx === 3;
+    ringsHtml += `<polygon points="${ringPts}" fill="none" stroke="${isOuter ? 'rgba(205, 164, 94, 0.38)' : 'rgba(205, 164, 94, 0.12)'}" stroke-width="${isOuter ? '1.2' : '0.8'}" stroke-dasharray="${isOuter ? 'none' : '2 2'}" />`;
   });
 
-  // Axis spokes
+  // Distinct colored spoke lines for each dimension
   let spokesHtml = '';
-  [0, 1, 2, 3, 4].map(i => {
+  dimensions.forEach((d, i) => {
     const angle = -Math.PI / 2 + i * (2 * Math.PI / 5);
     const x = cx + R * Math.cos(angle);
     const y = cy + R * Math.sin(angle);
-    spokesHtml += `<line x1="${cx}" y1="${cy}" x2="${x.toFixed(1)}" y2="${y.toFixed(1)}" stroke="rgba(205, 164, 94, 0.2)" stroke-width="1" />`;
+    spokesHtml += `<line x1="${cx}" y1="${cy}" x2="${x.toFixed(1)}" y2="${y.toFixed(1)}" stroke="${d.color}" stroke-width="1.2" opacity="0.6" stroke-dasharray="3 2" />`;
   });
 
-  // Vertex dots
-  const vertexDots = dimensions.map((d, i) => {
+  // Vertex dots with gemstone colors
+  let vertexDotsHtml = '';
+  dimensions.forEach((d, i) => {
     const angle = -Math.PI / 2 + i * (2 * Math.PI / 5);
     const r = (d.score / 100.0) * R;
     const x = cx + r * Math.cos(angle);
     const y = cy + r * Math.sin(angle);
-    return `<circle class="radar-vertex" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="3.5" />`;
-  }).join('');
+    vertexDotsHtml += `
+      <circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="6" fill="${d.color}" opacity="0.3" />
+      <circle class="radar-vertex" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="3.8" fill="${d.color}" stroke="#ffffff" stroke-width="1.5" />
+    `;
+  });
+
+  // Descriptive colorful text labels around the 5 axes
+  let labelsHtml = '';
+  dimensions.forEach((d, i) => {
+    const angle = -Math.PI / 2 + i * (2 * Math.PI / 5);
+    const lx = cx + R_label * Math.cos(angle);
+    const ly = cy + R_label * Math.sin(angle);
+    const name = currentLang === 'fa' ? d.nameFa : d.nameEn;
+    const spectrum = getSpectrumLabel(d.score);
+
+    let anchor = 'middle';
+    let titleY = ly;
+    let scoreY = ly + 11;
+
+    if (Math.abs(Math.cos(angle)) < 0.25) {
+      anchor = 'middle';
+      titleY = ly - 7;
+      scoreY = ly + 5;
+    } else if (Math.cos(angle) > 0) {
+      anchor = 'start';
+      titleY = ly - 3;
+      scoreY = ly + 9;
+    } else {
+      anchor = 'end';
+      titleY = ly - 3;
+      scoreY = ly + 9;
+    }
+
+    labelsHtml += `
+      <g class="radar-label-group cursor-default select-none">
+        <text x="${lx.toFixed(1)}" y="${titleY.toFixed(1)}" text-anchor="${anchor}" fill="${d.color}" font-size="10.5" font-weight="600">
+          ${d.icon} ${name}
+        </text>
+        <text x="${lx.toFixed(1)}" y="${scoreY.toFixed(1)}" text-anchor="${anchor}" fill="#ecdcb9" font-size="9" font-mono font-medium opacity="0.9">
+          ${spectrum}
+        </text>
+      </g>
+    `;
+  });
 
   svg.innerHTML = `
     <defs>
       <radialGradient id="radarFillGrad" cx="50%" cy="50%" r="50%">
         <stop offset="0%" stop-color="rgba(205, 164, 94, 0.45)" />
-        <stop offset="100%" stop-color="rgba(205, 164, 94, 0.12)" />
+        <stop offset="60%" stop-color="rgba(205, 164, 94, 0.2)" />
+        <stop offset="100%" stop-color="rgba(74, 136, 199, 0.08)" />
       </radialGradient>
     </defs>
+    
+    <!-- Concentric Pentagon Rings -->
     ${ringsHtml}
+    
+    <!-- Colored Axis Spokes -->
     ${spokesHtml}
+    
+    <!-- Central Core -->
+    <circle cx="${cx}" cy="${cy}" r="2.5" fill="#cda45e" opacity="0.8" />
+    
+    <!-- Translucent Gilded Polygon Shape -->
     <polygon class="radar-polygon" points="${points}" fill="url(#radarFillGrad)" />
-    ${vertexDots}
+    
+    <!-- Gemstone Vertex Dots -->
+    ${vertexDotsHtml}
+    
+    <!-- Colored Dimension Labels with Icons & Spectrum Values -->
+    ${labelsHtml}
   `;
 }
 
@@ -505,6 +565,7 @@ function renderHeroTraitBars(fig) {
         <div class="flex items-center justify-between text-[11px] mb-0.5">
           <span class="text-stone-300 flex items-center gap-1.5 font-light">
             <span class="w-2 h-2 rounded-full inline-block" style="background:${dim.color}"></span>
+            <span class="text-stone-400 font-mono text-[10px]">${dim.icon}</span>
             <span>${label}</span>
           </span>
           <span class="trait-spectrum-tag font-mono">${spectrumLabel}</span>

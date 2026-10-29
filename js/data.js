@@ -1052,7 +1052,8 @@ const UI_TEXT = {
     "methodP3": "In this archive, we separate documented historical actions (alliances, statecraft, ruthlessness, trauma) from retrospective psychological interpretations, using modern dimensional personality theory.",
     "addModalTitle": "Add Figure to Historical Timeline",
     "compassTitle": "Psychobiographical Trait Compass (AMPD Framework)",
-    "heroExhibitionHall": "GALLERY CORRIDOR"
+    "heroExhibitionHall": "GALLERY CORRIDOR",
+    "compassTopNotice": "↑ Top Axis: Sovereign Agency & Intellectual Autonomy"
   },
   "fa": {
     "navTimeline": "تایم‌لاین تاریخی",
@@ -1107,7 +1108,8 @@ const UI_TEXT = {
     "methodP3": "در این پروژه، «رفتارهای سیاسی و تاریخی مستند» از «تفسیرهای روان‌شناختی ابعادی» تفکیک شده‌اند تا پژوهشی دقیق، علمی و معتبر ارائه شود.",
     "addModalTitle": "افزودن شخصیت جدید به آرشیو پژوهشی",
     "compassTitle": "قطب‌نمای ابعادی روان‌شناختی (الگوی AMPD)",
-    "heroExhibitionHall": "تالار اصلی نمایشگاه"
+    "heroExhibitionHall": "تالار اصلی نمایشگاه",
+    "compassTopNotice": "↑ ضلع بالا: عاملیت و اقتدار فکری (Sovereign Agency)"
   }
 };
 
