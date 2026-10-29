@@ -1,6 +1,6 @@
 /* ========================================================
-   Women, Power & Personality — Historical & Psychological Archive
-   Styles & Museum Atmosphere
+   WOMEN, POWER & PERSONALITY — LUXURY EDITORIAL ARCHIVE
+   High-End Museum Exhibition Atmosphere & Bespoke Design System
    ======================================================== */
 
 /* ========================================================
@@ -46,7 +46,32 @@
   font-display: swap;
 }
 
-/* Persian typography override and letter-spacing correction */
+/* ========================================================
+   Design Tokens & CSS Variables
+   ======================================================== */
+:root {
+  --bg-canvas: #090a0e;
+  --bg-card: rgba(18, 20, 28, 0.85);
+  --bg-card-hover: rgba(26, 30, 42, 0.95);
+  --gold-antique: #cda45e;
+  --gold-pale: #eedcb6;
+  --gold-deep: #8f6f38;
+  --gold-border: rgba(205, 164, 94, 0.28);
+  --gold-glow: rgba(205, 164, 94, 0.35);
+
+  --text-primary: #f5f0e8;
+  --text-secondary: #c7beaf;
+  --text-muted: #8d8578;
+
+  /* Gemstone Trait Palette */
+  --gem-blue: #4a88c7;
+  --gem-purple: #9469bb;
+  --gem-red: #c85a48;
+  --gem-green: #3ea376;
+  --gem-gold: #d4af37;
+}
+
+/* Persian typography overrides */
 [dir="rtl"],
 [dir="rtl"] body,
 [dir="rtl"] input,
@@ -68,31 +93,123 @@
   letter-spacing: normal !important;
 }
 
-:root {
-  --bg-primary: #07090e;
-  --gold: #c9a66b;
-  --gold-glow: rgba(201, 166, 107, 0.35);
-  --blue-glow: rgba(122, 156, 255, 0.55);
-}
-
+/* Base Body Styles */
 body {
-  background-color: var(--bg-primary);
-  color: #e5e0d8;
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
   overflow-x: hidden;
   background-image: 
-    radial-gradient(circle at 52% 28%, rgba(201, 166, 107, 0.10) 0%, rgba(12, 18, 30, 0.45) 38%, rgba(7, 9, 14, 0.98) 75%),
-    radial-gradient(circle at 15% 80%, rgba(56, 78, 128, 0.08) 0%, transparent 50%);
+    radial-gradient(circle at 50% 18%, rgba(205, 164, 94, 0.08) 0%, rgba(13, 15, 23, 0.5) 35%, rgba(9, 10, 14, 0.98) 75%),
+    radial-gradient(circle at 12% 85%, rgba(74, 136, 199, 0.05) 0%, transparent 45%);
 }
 
 /* Subtle museum film grain texture */
 .museum-grain {
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.035'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
 }
 
-/* Arch Portrait Card Style */
+/* ========================================================
+   EXHIBITION STAGE (HERO SHOWCASE)
+   ======================================================== */
+.exhibition-stage {
+  background: linear-gradient(180deg, rgba(17, 19, 27, 0.85) 0%, rgba(10, 12, 17, 0.96) 100%);
+  border: 1px solid var(--gold-border);
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.85), inset 0 1px 0 rgba(238, 220, 182, 0.12);
+  transition: all 0.4s ease;
+}
+
+/* The Grand Arched Oil Portrait Frame */
+.arch-portrait-frame {
+  position: relative;
+  border-radius: 170px 170px 14px 14px;
+  overflow: hidden;
+  border: 1.5px solid rgba(205, 164, 94, 0.55);
+  box-shadow: 
+    0 20px 50px -10px rgba(0, 0, 0, 0.95),
+    0 0 35px rgba(205, 164, 94, 0.18),
+    inset 0 0 25px rgba(0, 0, 0, 0.85);
+  background: #090a0f;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.arch-portrait-frame:hover {
+  border-color: rgba(205, 164, 94, 0.85);
+  box-shadow: 
+    0 25px 60px -8px rgba(0, 0, 0, 0.98),
+    0 0 45px rgba(205, 164, 94, 0.28),
+    inset 0 0 25px rgba(0, 0, 0, 0.85);
+}
+
+/* Oil Portrait Painterly Filter */
+.painterly-img {
+  filter: contrast(1.07) saturate(1.05) brightness(0.95);
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
+}
+
+.arch-portrait-frame:hover .painterly-img {
+  transform: scale(1.03);
+  filter: contrast(1.1) saturate(1.1) brightness(1.02);
+}
+
+/* Engraved Brass Cartouche (Quote Placard) */
+.engraved-cartouche {
+  background: linear-gradient(180deg, rgba(20, 24, 34, 0.95) 0%, rgba(10, 12, 18, 0.98) 100%);
+  border: 1px solid rgba(205, 164, 94, 0.45);
+  border-radius: 12px;
+  box-shadow: 
+    0 10px 30px -5px rgba(0, 0, 0, 0.85),
+    0 0 20px rgba(205, 164, 94, 0.12),
+    inset 0 1px 0 rgba(238, 220, 182, 0.25);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.engraved-cartouche:hover {
+  border-color: rgba(205, 164, 94, 0.75);
+  box-shadow: 
+    0 14px 35px -5px rgba(0, 0, 0, 0.9),
+    0 0 28px rgba(205, 164, 94, 0.22),
+    inset 0 1px 0 rgba(238, 220, 182, 0.4);
+}
+
+.cartouche-quote-mark {
+  color: var(--gold-antique);
+  text-shadow: 0 0 12px rgba(205, 164, 94, 0.6);
+  font-family: "Cormorant Garamond", "Vazirmatn", Georgia, serif;
+  font-weight: 700;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Psychobiographical Compass (Radar Chart) */
+.psychobiographical-compass {
+  background: rgba(12, 14, 21, 0.8);
+  border: 1px solid rgba(205, 164, 94, 0.22);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.radar-polygon {
+  fill: rgba(205, 164, 94, 0.25);
+  stroke: var(--gold-antique);
+  stroke-width: 1.8;
+  filter: drop-shadow(0 0 8px rgba(205, 164, 94, 0.5));
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.radar-vertex {
+  fill: #fff3d6;
+  stroke: var(--gold-antique);
+  stroke-width: 2;
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ========================================================
+   HORIZONTAL GALLERY CORRIDOR (TIMELINE)
+   ======================================================== */
 .arch-card {
   border-radius: 110px 110px 14px 14px;
-  background: linear-gradient(180deg, rgba(20, 26, 38, 0.85) 0%, rgba(10, 13, 20, 0.95) 100%);
+  background: linear-gradient(180deg, rgba(18, 22, 32, 0.88) 0%, rgba(10, 12, 18, 0.96) 100%);
   border: 1px solid rgba(255, 255, 255, 0.08);
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform, box-shadow;
@@ -100,15 +217,15 @@ body {
 }
 
 .arch-card:hover {
-  border-color: rgba(201, 166, 107, 0.45);
-  transform: translateY(-4px);
-  box-shadow: 0 14px 34px -8px rgba(0, 0, 0, 0.7), 0 0 25px rgba(201, 166, 107, 0.12);
+  border-color: rgba(205, 164, 94, 0.5);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px -8px rgba(0, 0, 0, 0.8), 0 0 25px rgba(205, 164, 94, 0.15);
 }
 
 .arch-card.active-card {
-  border-color: #c9a66b;
-  background: linear-gradient(180deg, rgba(35, 31, 28, 0.88) 0%, rgba(14, 15, 22, 0.96) 100%);
-  box-shadow: 0 18px 40px -10px rgba(0, 0, 0, 0.85), 0 0 28px rgba(201, 166, 107, 0.28);
+  border-color: var(--gold-antique);
+  background: linear-gradient(180deg, rgba(32, 28, 24, 0.92) 0%, rgba(14, 15, 22, 0.98) 100%);
+  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.9), 0 0 30px rgba(205, 164, 94, 0.3);
   transform: translateY(-6px) scale(1.02);
 }
 
@@ -122,31 +239,43 @@ body {
 .timeline-axis-line {
   height: 2px;
   background: linear-gradient(90deg, 
-    rgba(122, 156, 255, 0.1) 0%, 
-    rgba(122, 156, 255, 0.65) 20%, 
-    rgba(201, 166, 107, 0.9) 50%, 
-    rgba(122, 156, 255, 0.65) 80%, 
-    rgba(122, 156, 255, 0.1) 100%);
-  box-shadow: 0 0 12px rgba(122, 156, 255, 0.6), 0 0 24px rgba(201, 166, 107, 0.3);
+    rgba(205, 164, 94, 0.1) 0%, 
+    rgba(205, 164, 94, 0.6) 20%, 
+    rgba(238, 220, 182, 0.95) 50%, 
+    rgba(205, 164, 94, 0.6) 80%, 
+    rgba(205, 164, 94, 0.1) 100%);
+  box-shadow: 0 0 12px rgba(205, 164, 94, 0.5), 0 0 24px rgba(205, 164, 94, 0.2);
 }
 
 .timeline-node {
   width: 9px;
   height: 9px;
   border-radius: 999px;
-  background: #dbe6ff;
-  box-shadow: 0 0 10px 3px rgba(122, 156, 255, 0.85);
+  background: #ecdcb9;
+  box-shadow: 0 0 10px 2px rgba(205, 164, 94, 0.7);
   transition: all 0.3s ease;
 }
 
 .arch-card.active-card .timeline-node {
   width: 13px;
   height: 13px;
-  background: #f5d799;
-  box-shadow: 0 0 14px 5px rgba(201, 166, 107, 0.95);
+  background: #ffffff;
+  box-shadow: 0 0 16px 4px rgba(205, 164, 94, 0.95);
 }
 
-/* Hide scrollbar for timeline container */
+/* Slider Arrow Buttons */
+.timeline-arrow-btn {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  will-change: transform, box-shadow;
+  transform: translateZ(0);
+}
+
+.timeline-arrow-btn:hover {
+  box-shadow: 0 0 25px rgba(205, 164, 94, 0.45), 0 8px 24px rgba(0, 0, 0, 0.95);
+}
+
+/* Hide scrollbar */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
@@ -155,57 +284,58 @@ body {
   scrollbar-width: none;
 }
 
-/* Golden Halo Ring behind Hero Portrait */
-.hero-halo {
-  border: 1px solid rgba(201, 166, 107, 0.38);
-  box-shadow: inset 0 0 50px rgba(201, 166, 107, 0.08), 0 0 60px rgba(201, 166, 107, 0.12);
+/* ========================================================
+   DYNAMIC HISTORICAL TRAIT WAVE GRAPH
+   ======================================================== */
+.trait-stream-curve {
+  transition: opacity 0.35s ease, stroke-width 0.35s ease;
+  will-change: opacity, stroke-width;
 }
 
-.hero-halo::before {
-  content: '';
-  position: absolute;
-  inset: -14px;
-  border-radius: 9999px;
-  border: 1px dashed rgba(201, 166, 107, 0.16);
-  animation: slowSpin 90s linear infinite;
+.trait-node-dot {
+  cursor: pointer;
+  transition: transform 0.2s ease, r 0.2s ease, fill-opacity 0.2s ease;
 }
 
-@keyframes slowSpin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.trait-node-dot:hover {
+  r: 6;
+  filter: drop-shadow(0 0 8px currentColor);
 }
 
-/* Painterly Portrait Filter */
-.painterly-img {
-  filter: contrast(1.08) sepia(0.18) brightness(0.92);
-  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
-}
-.arch-card:hover .painterly-img {
-  transform: scale(1.06);
-  filter: contrast(1.12) sepia(0.1) brightness(1);
+.wave-cursor-line {
+  stroke: var(--gold-antique);
+  stroke-width: 1.2;
+  stroke-dasharray: 3 3;
+  transition: x1 0.5s ease, x2 0.5s ease;
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+.wave-cursor-head {
+  fill: #fff4d8;
+  stroke: var(--gold-antique);
+  stroke-width: 2;
+  filter: drop-shadow(0 0 10px rgba(205, 164, 94, 0.8));
+  transition: cx 0.5s ease, cy 0.5s ease;
 }
-::-webkit-scrollbar-track {
-  background: #07090e;
+
+/* Trait Badge Pills */
+.trait-pill-badge {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  user-select: none;
 }
-::-webkit-scrollbar-thumb {
-  background: #262f42;
-  border-radius: 3px;
+
+.trait-pill-badge:hover {
+  transform: translateY(-1px);
 }
-::-webkit-scrollbar-thumb:hover {
-  background: #c9a66b;
+
+.trait-pill-badge.active-trait {
+  box-shadow: 0 0 14px rgba(205, 164, 94, 0.35);
+  border-color: var(--gold-antique) !important;
 }
 
 /* ========================================================
-   MODAL & QUOTE UI IMPROVEMENTS
+   MODAL & DOSSIER STYLES
    ======================================================== */
-
-/* RTL & LTR Modal Close Button Placement */
 .modal-close-btn {
   position: absolute;
   top: 1.25rem;
@@ -221,7 +351,7 @@ body {
 
 .modal-close-btn:hover {
   transform: scale(1.08);
-  border-color: rgba(201, 166, 107, 0.6);
+  border-color: rgba(205, 164, 94, 0.6);
   color: #fff;
 }
 
@@ -235,104 +365,34 @@ body {
   left: auto !important;
 }
 
-/* Elegant Quote Boxes */
 .quote-box {
-  background: linear-gradient(135deg, rgba(201, 166, 107, 0.08) 0%, rgba(12, 16, 24, 0.85) 100%);
-  border-inline-start: 3px solid var(--gold);
+  background: linear-gradient(135deg, rgba(205, 164, 94, 0.08) 0%, rgba(12, 16, 24, 0.85) 100%);
+  border-inline-start: 3px solid var(--gold-antique);
 }
 
-[dir="rtl"] .floating-hero-quote {
-  left: -12.5rem;
-  right: auto;
-  text-align: right;
-  border-inline-start: 1px solid rgba(201, 166, 107, 0.45);
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
 }
-
-[dir="ltr"] .floating-hero-quote {
-  right: -12.5rem;
-  left: auto;
-  text-align: left;
-  border-inline-start: 1px solid rgba(201, 166, 107, 0.45);
-}
-
-/* Golden Crown Quote Plaque (Above Head) */
-.golden-quote-plaque {
-  background: linear-gradient(180deg, rgba(20, 26, 38, 0.94) 0%, rgba(10, 13, 20, 0.98) 100%);
-  border: 1.5px solid rgba(201, 166, 107, 0.65);
-  box-shadow: 
-    0 12px 32px -4px rgba(0, 0, 0, 0.85),
-    0 0 24px rgba(201, 166, 107, 0.25),
-    inset 0 1px 0 rgba(230, 210, 170, 0.4);
-  position: relative;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.golden-quote-plaque:hover {
-  border-color: rgba(201, 166, 107, 0.9);
-  box-shadow: 
-    0 16px 36px -4px rgba(0, 0, 0, 0.92),
-    0 0 32px rgba(201, 166, 107, 0.4),
-    inset 0 1px 0 rgba(230, 210, 170, 0.6);
-  transform: translateY(-2px);
-}
-
-/* Downward golden indicator notch pointing to the portrait */
-.golden-quote-plaque::after {
-  content: '';
-  position: absolute;
-  bottom: -6px;
-  left: 50%;
-  transform: translateX(-50%) rotate(45deg);
-  width: 10px;
-  height: 10px;
-  background: rgba(10, 13, 20, 0.98);
-  border-right: 1.5px solid rgba(201, 166, 107, 0.65);
-  border-bottom: 1.5px solid rgba(201, 166, 107, 0.65);
-  z-index: 10;
-}
-
-.golden-quote-mark {
-  color: #c9a66b;
-  text-shadow: 0 0 14px rgba(201, 166, 107, 0.75);
-  font-family: "Cormorant Garamond", "Vazirmatn", Georgia, serif;
-  font-weight: 700;
-  display: inline-block;
-  vertical-align: middle;
-}
-
-.quote-tag-badge {
+::-webkit-scrollbar-track {
   background: #07090e;
-  border: 1px solid rgba(201, 166, 107, 0.5);
-  color: #e6d2aa;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+}
+::-webkit-scrollbar-thumb {
+  background: #232b3d;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-antique);
 }
 
-/* Timeline Slider Arrow Buttons */
-.timeline-arrow-btn {
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  cursor: pointer;
-  will-change: transform, box-shadow;
-  transform: translateZ(0);
-}
-
-.timeline-arrow-btn:hover {
-  box-shadow: 0 0 22px rgba(201, 166, 107, 0.45), 0 8px 24px rgba(0, 0, 0, 0.95);
-}
-
-/* Accessible Focus States */
+/* Focus outline */
 :focus-visible {
-  outline: 2px solid #c9a66b;
+  outline: 2px solid var(--gold-antique);
   outline-offset: 2px;
 }
 
-/* Performance & Touch Scroll Optimization */
-#timelineContainer {
-  -webkit-overflow-scrolling: touch;
-  scroll-behavior: smooth;
-  overscroll-behavior-x: contain;
-}
-
-/* Mobile & Small Screen Responsive Adjustments */
+/* Responsive adjustments */
 @media (max-width: 640px) {
   .arch-card {
     border-radius: 85px 85px 12px 12px;
@@ -340,31 +400,22 @@ body {
   .arch-image-wrapper {
     border-radius: 80px 80px 0 0;
   }
-  .hero-halo {
-    width: 260px !important;
-    height: 260px !important;
-  }
-  .hero-halo > div.relative {
-    width: 240px !important;
-    height: 240px !important;
-  }
-  .golden-quote-plaque {
-    padding: 0.75rem 1rem !important;
+  .arch-portrait-frame {
+    width: 250px !important;
+    height: 320px !important;
+    border-radius: 125px 125px 10px 10px !important;
   }
   .timeline-axis-line {
     top: 135px;
   }
 }
 
-/* Reduced Motion Accessibility */
+/* Reduced motion accessibility */
 @media (prefers-reduced-motion: reduce) {
   *, ::before, ::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
-  }
-  .hero-halo::before {
-    animation: none;
   }
 }

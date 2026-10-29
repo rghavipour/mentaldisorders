@@ -87,77 +87,18 @@ const PERIODS = [
   }
 ];
 
+const TRAIT_DIMENSIONS = [
+  { key: 'agency', labelEn: 'Sovereign Agency', labelFa: 'عاملیت و اقتدار', color: '#4a88c7', icon: '✦', descFa: 'استقلال عقلانی، تصمیم‌گیری حاکمیتی و تسلیم‌ناپذیری در برابر فشارهای محیطی.', descEn: 'Intellectual autonomy, sovereign decision-making, and resistance to subservience.' },
+  { key: 'realpolitik', labelEn: 'Realpolitik & Statecraft', labelFa: 'مصلحت‌اندیشی سیاسی', color: '#9469bb', icon: '♟', descFa: 'محاسبه‌گری استراتژیک، مانور دیپلماتیک و اولویت دادن به بقای دولت و دودمان.', descEn: 'Strategic calculation, diplomatic maneuvering, and prioritization of state survival.' },
+  { key: 'affectivity', labelEn: 'Affective Intensity', labelFa: 'شور و نوسان عاطفی', color: '#c85a48', icon: '♥', descFa: 'عمق احساسی، شور زیباشناختی، یا حساسیت نسبت به طرد و بی‌عدالتی.', descEn: 'Emotional depth, aesthetic sensitivity, or vulnerability to rejection and alienation.' },
+  { key: 'nonconformity', labelEn: 'Radical Non-Conformity', labelFa: 'هنجارشکنی و سرکشی', color: '#3ea376', icon: '⚡', descFa: 'طغیان علیه هنجارهای مردسالار، سنت‌های مذهبی تحمیلی یا نقش‌های مقدر زمانه.', descEn: 'Rebellion against patriarchal constraints, rigid orthodoxy, or assigned social roles.' },
+  { key: 'resilience', labelEn: 'Crisis Resilience', labelFa: 'تاب‌آوری در بحران', color: '#d4af37', icon: '🛡', descFa: 'توانایی بازسازی روانی، حفظ انسجام هویتی و مقاومت در کوران فجایع و مرگ اطرافیان.', descEn: 'Psychological recovery, maintaining self-cohesion through bereavement and political crisis.' }
+];
+
 const FIGURES_DATA = [
   {
-    "id": "hypatia",
-    "archiveNo": "ARCHIVE NO. 01",
-    "nameEn": "Hypatia of Alexandria",
-    "nameFa": "هیپاتیا اسکندرانی",
-    "datesEn": "370 – 415 AD",
-    "datesFa": "۳۷۰ تا ۴۱۵ میلادی",
-    "period": "Ancient",
-    "eraTagEn": "LATE ANTIQUITY ALEXANDRIA • 370–415 AD",
-    "eraTagFa": "اسکندریه دوران باستان متأخر • ۳۷۰–۴۱۵ م",
-    "archetypeEn": "Intellectual Autonomy",
-    "archetypeFa": "استقلال عقلانی و فلسفی",
-    "keywordsEn": "Philosopher, mathematician, political martyrdom",
-    "keywordsFa": "فیلسوف، ریاضی‌دان، شهادت سیاسی",
-    "themes": [
-      "Legacy",
-      "Power",
-      "Ambition"
-    ],
-    "portrait": "images/hypatia.jpg",
-    "portraitWebp": "images/hypatia.webp",
-    "thumbWebp": "images/hypatia_thumb.webp",
-    "fallbackPortrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Hypatia_portrait.png/600px-Hypatia_portrait.png",
-    "quoteEn": "“Reserve your right to think, for even to think wrongly is better than not to think at all.”",
-    "quoteFa": "«حق اندیشیدن را برای خود محفوظ بدار؛ چرا که حتی خطا اندیشیدن بهتر از نیندیشیدن است.»",
-    "bioEn": "Renowned Neoplatonist philosopher, astronomer, and mathematician in Alexandria. Navigating a volatile power struggle between Imperial Prefect Orestes and Bishop Cyril, her public authority and refusal to conform to submissive gender norms made her a target of political assassination.",
-    "bioFa": "فیلسوف نوافلاطونی، ستاره‌شناس و ریاضی‌دان برجسته اسکندریه. حضور او در کانون مشاوره‌های سیاسی و امتناع از پذیرش نقش‌های جنسیتی مطیع در میانه نزاع قدرت میان اورستس و سیریل، او را به هدف ترور سیاسی تبدیل کرد.",
-    "psychEn": "High openness to experience, emotional self-regulation (Stoic/Neoplatonic discipline), and fearless intellectual assertiveness. Hostile chroniclers framed her public composure as \"arrogant enchantment.\"",
-    "psychFa": "گشودگی بسیار بالا به تجربه، خودتنظیمی هیجانی مبتنی بر ریاضت فلسفی، و قاطعیت کلامی در فضای عمومی. مخالفان سیاسی، استقلال فکری او را «افسونگری و غرور» نامیدند.",
-    "biasEn": "6th-century chronicler John of Nikiu portrayed her astronomy as \"satanic witchcraft,\" illustrating how female scientific authority was pathologized or demonized.",
-    "biasFa": "یوحنای نیکیو در قرن ششم دانش نجوم و ریاضیات او را «جادوگری و فریبندگی» خواند؛ نمونه‌ای کلاسیک از برچسب‌زنی به اقتدار علمی زنان.",
-    "traits": [
-      {
-        "nameEn": "Intellectual Assertiveness",
-        "nameFa": "قاطعیت شناختی و فکری",
-        "score": 95,
-        "color": "#3dd6c6"
-      },
-      {
-        "nameEn": "Emotional Composure",
-        "nameFa": "خودتنظیمی هیجانی",
-        "score": 90,
-        "color": "#7b8cff"
-      },
-      {
-        "nameEn": "Social Non-Conformity",
-        "nameFa": "ناهمرنگی با کلیشه‌های زمانه",
-        "score": 88,
-        "color": "#e8a856"
-      }
-    ],
-    "eventsEn": [
-      "Headed the Platonist school at Alexandria (~400 AD)",
-      "Advised Roman Prefect Orestes during civic crisis",
-      "Assassinated by a political mob in March 415 AD"
-    ],
-    "eventsFa": [
-      "ریاست مکتب فلسفی اسکندریه (حدود ۴۰۰ میلادی)",
-      "مشاوره سیاسی به اورستس، فرماندار رومی اسکندریه",
-      "ترور سیاسی در مارس ۴۱۵ میلادی"
-    ],
-    "sources": [
-      "Socrates Scholasticus, Ecclesiastical History",
-      "Maria Dzielska (1995), Hypatia of Alexandria",
-      "Edward Jay Watts (2017), Hypatia"
-    ]
-  },
-  {
     "id": "cleopatra",
-    "archiveNo": "ARCHIVE NO. 02",
+    "archiveNo": "CAT. 01",
     "nameEn": "Cleopatra VII",
     "nameFa": "کلئوپاترای هفتم",
     "datesEn": "69 – 30 BC",
@@ -221,11 +162,96 @@ const FIGURES_DATA = [
       "Plutarch, Life of Antony",
       "Stacy Schiff (2010), Cleopatra: A Life",
       "Duane W. Roller (2010), Cleopatra: A Biography"
-    ]
+    ],
+    "radarScores": {
+      "agency": 94,
+      "realpolitik": 92,
+      "affectivity": 82,
+      "nonconformity": 88,
+      "resilience": 86
+    },
+    "quoteAuthorFa": "واپسین فرعون مصر، در برابر محاصره روم",
+    "quoteAuthorEn": "Last Pharaoh of Ptolemaic Egypt"
+  },
+  {
+    "id": "hypatia",
+    "archiveNo": "CAT. 02",
+    "nameEn": "Hypatia of Alexandria",
+    "nameFa": "هیپاتیا اسکندرانی",
+    "datesEn": "370 – 415 AD",
+    "datesFa": "۳۷۰ تا ۴۱۵ میلادی",
+    "period": "Ancient",
+    "eraTagEn": "LATE ANTIQUITY ALEXANDRIA • 370–415 AD",
+    "eraTagFa": "اسکندریه دوران باستان متأخر • ۳۷۰–۴۱۵ م",
+    "archetypeEn": "Intellectual Autonomy",
+    "archetypeFa": "استقلال عقلانی و فلسفی",
+    "keywordsEn": "Philosopher, mathematician, political martyrdom",
+    "keywordsFa": "فیلسوف، ریاضی‌دان، شهادت سیاسی",
+    "themes": [
+      "Legacy",
+      "Power",
+      "Ambition"
+    ],
+    "portrait": "images/hypatia.jpg",
+    "portraitWebp": "images/hypatia.webp",
+    "thumbWebp": "images/hypatia_thumb.webp",
+    "fallbackPortrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Hypatia_portrait.png/600px-Hypatia_portrait.png",
+    "quoteEn": "“Reserve your right to think, for even to think wrongly is better than not to think at all.”",
+    "quoteFa": "«حق اندیشیدن را برای خود محفوظ بدار؛ چرا که حتی خطا اندیشیدن بهتر از نیندیشیدن است.»",
+    "bioEn": "Renowned Neoplatonist philosopher, astronomer, and mathematician in Alexandria. Navigating a volatile power struggle between Imperial Prefect Orestes and Bishop Cyril, her public authority and refusal to conform to submissive gender norms made her a target of political assassination.",
+    "bioFa": "فیلسوف نوافلاطونی، ستاره‌شناس و ریاضی‌دان برجسته اسکندریه. حضور او در کانون مشاوره‌های سیاسی و امتناع از پذیرش نقش‌های جنسیتی مطیع در میانه نزاع قدرت میان اورستس و سیریل، او را به هدف ترور سیاسی تبدیل کرد.",
+    "psychEn": "High openness to experience, emotional self-regulation (Stoic/Neoplatonic discipline), and fearless intellectual assertiveness. Hostile chroniclers framed her public composure as \"arrogant enchantment.\"",
+    "psychFa": "گشودگی بسیار بالا به تجربه، خودتنظیمی هیجانی مبتنی بر ریاضت فلسفی، و قاطعیت کلامی در فضای عمومی. مخالفان سیاسی، استقلال فکری او را «افسونگری و غرور» نامیدند.",
+    "biasEn": "6th-century chronicler John of Nikiu portrayed her astronomy as \"satanic witchcraft,\" illustrating how female scientific authority was pathologized or demonized.",
+    "biasFa": "یوحنای نیکیو در قرن ششم دانش نجوم و ریاضیات او را «جادوگری و فریبندگی» خواند؛ نمونه‌ای کلاسیک از برچسب‌زنی به اقتدار علمی زنان.",
+    "traits": [
+      {
+        "nameEn": "Intellectual Assertiveness",
+        "nameFa": "قاطعیت شناختی و فکری",
+        "score": 95,
+        "color": "#3dd6c6"
+      },
+      {
+        "nameEn": "Emotional Composure",
+        "nameFa": "خودتنظیمی هیجانی",
+        "score": 90,
+        "color": "#7b8cff"
+      },
+      {
+        "nameEn": "Social Non-Conformity",
+        "nameFa": "ناهمرنگی با کلیشه‌های زمانه",
+        "score": 88,
+        "color": "#e8a856"
+      }
+    ],
+    "eventsEn": [
+      "Headed the Platonist school at Alexandria (~400 AD)",
+      "Advised Roman Prefect Orestes during civic crisis",
+      "Assassinated by a political mob in March 415 AD"
+    ],
+    "eventsFa": [
+      "ریاست مکتب فلسفی اسکندریه (حدود ۴۰۰ میلادی)",
+      "مشاوره سیاسی به اورستس، فرماندار رومی اسکندریه",
+      "ترور سیاسی در مارس ۴۱۵ میلادی"
+    ],
+    "sources": [
+      "Socrates Scholasticus, Ecclesiastical History",
+      "Maria Dzielska (1995), Hypatia of Alexandria",
+      "Edward Jay Watts (2017), Hypatia"
+    ],
+    "radarScores": {
+      "agency": 96,
+      "realpolitik": 45,
+      "affectivity": 38,
+      "nonconformity": 94,
+      "resilience": 88
+    },
+    "quoteAuthorFa": "فیلسوف و ستاره‌شناس مکتب اسکندریه",
+    "quoteAuthorEn": "Neoplatonist Philosopher of Alexandria"
   },
   {
     "id": "wuzetian",
-    "archiveNo": "ARCHIVE NO. 03",
+    "archiveNo": "CAT. 03",
     "nameEn": "Empress Wu Zetian",
     "nameFa": "امپراتریس وو زتیان",
     "datesEn": "624 – 705 AD",
@@ -289,11 +315,20 @@ const FIGURES_DATA = [
       "Old Book of Tang (Jiu Tangshu)",
       "N. Harry Rothschild (2015), Emperor Wu Zhao and Her Pantheon",
       "Jonathan Clements (2007), Wu"
-    ]
+    ],
+    "radarScores": {
+      "agency": 97,
+      "realpolitik": 96,
+      "affectivity": 55,
+      "nonconformity": 92,
+      "resilience": 95
+    },
+    "quoteAuthorFa": "تنها امپراتور زن حاکم بر تاریخ چین (دودمان ژو)",
+    "quoteAuthorEn": "Sole Empress Regnant of China (Zhou Dynasty)"
   },
   {
     "id": "isabella",
-    "archiveNo": "ARCHIVE NO. 04",
+    "archiveNo": "CAT. 04",
     "nameEn": "Isabella I of Castile",
     "nameFa": "ایزابلای یکم کاستیل",
     "datesEn": "1451 – 1504",
@@ -355,11 +390,20 @@ const FIGURES_DATA = [
     "sources": [
       "Peggy K. Liss (1992), Isabel the Queen",
       "Giles Tremlett (2017), Isabella of Castile"
-    ]
+    ],
+    "radarScores": {
+      "agency": 91,
+      "realpolitik": 88,
+      "affectivity": 48,
+      "nonconformity": 35,
+      "resilience": 93
+    },
+    "quoteAuthorFa": "شهبانوی کاستیا و معمار وحدت اسپانیا",
+    "quoteAuthorEn": "Queen of Castile & Unifier of Spain"
   },
   {
     "id": "catherine",
-    "archiveNo": "ARCHIVE NO. 05",
+    "archiveNo": "CAT. 05",
     "nameEn": "Catherine de’ Medici",
     "nameFa": "کاترین دو مدیچی",
     "datesEn": "1519 – 1589",
@@ -421,11 +465,20 @@ const FIGURES_DATA = [
     "sources": [
       "Leonie Frieda (2003), Catherine de Medici",
       "R.J. Knecht (1998), Catherine de’ Medici"
-    ]
+    ],
+    "radarScores": {
+      "agency": 89,
+      "realpolitik": 95,
+      "affectivity": 72,
+      "nonconformity": 68,
+      "resilience": 88
+    },
+    "quoteAuthorFa": "شهبانوی مادر و استراتژیست رنسانس فرانسه",
+    "quoteAuthorEn": "Queen Mother & Diplomat of Renaissance France"
   },
   {
     "id": "maryshelley",
-    "archiveNo": "ARCHIVE NO. 06",
+    "archiveNo": "CAT. 06",
     "nameEn": "Mary Shelley",
     "nameFa": "مری شلی",
     "datesEn": "1797 – 1851",
@@ -487,11 +540,20 @@ const FIGURES_DATA = [
     "sources": [
       "Mary Shelley, Journals (1814–1844)",
       "Miranda Seymour (2000), Mary Shelley"
-    ]
+    ],
+    "radarScores": {
+      "agency": 92,
+      "realpolitik": 32,
+      "affectivity": 95,
+      "nonconformity": 92,
+      "resilience": 86
+    },
+    "quoteAuthorFa": "خالق فرانکنشتاین و پیشگام ادبیات گوتیک",
+    "quoteAuthorEn": "Author of Frankenstein & Romantic Thinker"
   },
   {
     "id": "victoria",
-    "archiveNo": "ARCHIVE NO. 07",
+    "archiveNo": "CAT. 07",
     "nameEn": "Queen Victoria",
     "nameFa": "ملکه ویکتوریا",
     "datesEn": "1819 – 1901",
@@ -555,11 +617,20 @@ const FIGURES_DATA = [
       "Queen Victoria’s Journals (Royal Archives)",
       "Lucy Worsley (2018), Queen Victoria",
       "A.N. Wilson (2014), Victoria: A Life"
-    ]
+    ],
+    "radarScores": {
+      "agency": 88,
+      "realpolitik": 78,
+      "affectivity": 89,
+      "nonconformity": 32,
+      "resilience": 82
+    },
+    "quoteAuthorFa": "ملکه امپراتوری بریتانیا در عصر ویکتوریا",
+    "quoteAuthorEn": "Monarch of the British Empire"
   },
   {
     "id": "beauvoir",
-    "archiveNo": "ARCHIVE NO. 08",
+    "archiveNo": "CAT. 08",
     "nameEn": "Simone de Beauvoir",
     "nameFa": "سیمون دو بووار",
     "datesEn": "1908 – 1986",
@@ -622,11 +693,20 @@ const FIGURES_DATA = [
       "Simone de Beauvoir (1949), Le Deuxième Sexe",
       "Deirdre Bair (1990), Simone de Beauvoir: A Biography",
       "Kate Kirkpatrick (2019), Becoming Beauvoir"
-    ]
+    ],
+    "radarScores": {
+      "agency": 97,
+      "realpolitik": 60,
+      "affectivity": 80,
+      "nonconformity": 98,
+      "resilience": 90
+    },
+    "quoteAuthorFa": "فیلسوف اگزیستانسیالیست و نویسنده جنس دوم",
+    "quoteAuthorEn": "Existentialist Philosopher & Feminist Theorist"
   },
   {
     "id": "diana",
-    "archiveNo": "ARCHIVE NO. 09",
+    "archiveNo": "CAT. 09",
     "nameEn": "Princess Diana",
     "nameFa": "پرنسس دایانا",
     "datesEn": "1961 – 1997",
@@ -689,11 +769,20 @@ const FIGURES_DATA = [
     "sources": [
       "Andrew Morton (1992), Diana: Her True Story",
       "Tina Brown (2007), The Diana Chronicles"
-    ]
+    ],
+    "radarScores": {
+      "agency": 84,
+      "realpolitik": 42,
+      "affectivity": 96,
+      "nonconformity": 89,
+      "resilience": 74
+    },
+    "quoteAuthorFa": "شاهدخت ولز و نماد همدلی عاطفی در اواخر قرن بیستم",
+    "quoteAuthorEn": "Princess of Wales & Affective Icon"
   },
   {
     "id": "contemporary",
-    "archiveNo": "ARCHIVE NO. 10",
+    "archiveNo": "CAT. 10",
     "nameEn": "Modern & Contemporary Era",
     "nameFa": "عصر مدرن و معاصر",
     "datesEn": "2000 – Present",
@@ -756,7 +845,16 @@ const FIGURES_DATA = [
       "WHO (2022), ICD-11 Personality Disorders",
       "Elaine Showalter (1985), The Female Malady"
     ],
-    "fallbackPortrait": "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=700&q=80"
+    "fallbackPortrait": "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=700&q=80",
+    "radarScores": {
+      "agency": 90,
+      "realpolitik": 60,
+      "affectivity": 78,
+      "nonconformity": 85,
+      "resilience": 90
+    },
+    "quoteAuthorFa": "گذار به نظام‌های ابعادی شخصیت در قرن بیست و یکم",
+    "quoteAuthorEn": "21st Century Dimensional & Trauma Paradigms"
   }
 ];
 
@@ -812,7 +910,9 @@ const UI_TEXT = {
     "methodP1": "Retrospective psychiatric diagnosis (assigning clinical DSM/ICD personality disorders to figures who lived centuries ago) faces severe methodological limitations due to the absence of direct clinical interviews.",
     "methodP2": "Furthermore, the history of psychiatry—most notably the construct of \"Hysteria\" in the 19th century—demonstrates that medical labels were frequently weaponized against women who exhibited political ambition or intellectual defiance.",
     "methodP3": "In this archive, we separate documented historical actions (alliances, statecraft, ruthlessness, trauma) from retrospective psychological interpretations, using modern dimensional personality theory.",
-    "addModalTitle": "Add Figure to Historical Timeline"
+    "addModalTitle": "Add Figure to Historical Timeline",
+    "compassTitle": "Psychobiographical Trait Compass (AMPD Framework)",
+    "heroExhibitionHall": "GALLERY CORRIDOR"
   },
   "fa": {
     "navTimeline": "تایم‌لاین تاریخی",
@@ -865,7 +965,9 @@ const UI_TEXT = {
     "methodP1": "تشخیص روان‌پزشکی گذشته‌نگر (نسبت دادن قطعی اختلالات شخصیت DSM به افرادی که قرن‌ها پیش می‌زیسته‌اند) بدون مصاحبه بالینی مستقیم با محدودیت‌های جدی علمی روبه‌روست.",
     "methodP2": "علاوه بر این، تاریخچه مفاهیمی مانند «هیستری» نشان می‌دهد که برچسب‌های پزشکی اغلب تحت تأثیر نگرش‌های جنسیتی و سیاسی علیه زنان قدرتمند یا ساختارشکن به کار رفته‌اند.",
     "methodP3": "در این پروژه، «رفتارهای سیاسی و تاریخی مستند» از «تفسیرهای روان‌شناختی ابعادی» تفکیک شده‌اند تا پژوهشی دقیق، علمی و معتبر ارائه شود.",
-    "addModalTitle": "افزودن شخصیت جدید به آرشیو پژوهشی"
+    "addModalTitle": "افزودن شخصیت جدید به آرشیو پژوهشی",
+    "compassTitle": "قطب‌نمای ابعادی روان‌شناختی (الگوی AMPD)",
+    "heroExhibitionHall": "تالار اصلی نمایشگاه"
   }
 };
 
