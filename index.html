@@ -202,6 +202,19 @@
               </span>
               <span class="text-xs text-stone-400 font-mono" id="heroSelectedDates">۶۹ تا ۳۰ پیش از میلاد</span>
             </div>
+
+            <!-- Academic Evidence Level & Chronicler Stance (Zero Pseudo-Scientific Stigma) -->
+            <div class="flex flex-wrap items-center gap-2 pt-2.5">
+              <div class="evidence-pill" title="ارزیابی انتقادی شواهد تاریخی">
+                <span class="text-stone-400 text-[10px]" data-i18n="evidenceLabel">سطح شواهد:</span>
+                <span id="heroEvidenceLevel" class="font-medium text-stone-200 text-[10px]">قوی</span>
+                <span id="heroEvidenceDots" class="evidence-dots font-mono text-xs">●●●</span>
+              </div>
+              <div id="heroStanceBadge" class="stance-badge hostile" title="سوگیری تاریخ‌نگاری و راوی">
+                <span class="text-[9px] uppercase tracking-wider text-stone-400">منشأ برچسب:</span>
+                <span class="text-[10px]" id="heroStanceText">تبلیغات خصمانه روم</span>
+              </div>
+            </div>
           </div>
 
           <p id="heroSelectedBio" class="text-xs sm:text-sm text-stone-300 leading-relaxed font-light">
@@ -301,7 +314,16 @@
             </div>
 
             <!-- Engraved Brass Cartouche (Quote Placard) -->
-            <div class="engraved-cartouche mt-3.5 max-w-[420px] sm:max-w-[460px] w-full p-3.5 sm:p-4 text-center">
+            <div class="engraved-cartouche mt-3.5 max-w-[420px] sm:max-w-[480px] w-full p-3.5 sm:p-4 text-center">
+              
+              <!-- Quote Attribution Status Badge -->
+              <div class="flex justify-center mb-2" id="heroQuoteStatusContainer">
+                <span id="heroQuoteStatusBadge" class="documented-badge">
+                  <span>✦</span>
+                  <span id="heroQuoteStatusText">مستند تاریخی</span>
+                </span>
+              </div>
+
               <div class="flex items-center justify-center gap-2">
                 <span class="cartouche-quote-mark text-2xl sm:text-3xl leading-none select-none">«</span>
                 <blockquote id="heroQuoteText" class="font-serif italic text-xs sm:text-sm text-paleGold leading-relaxed px-1">
@@ -309,9 +331,13 @@
                 </blockquote>
                 <span class="cartouche-quote-mark text-2xl sm:text-3xl leading-none select-none">»</span>
               </div>
+              
               <div id="heroQuoteAttribution" class="text-[10px] sm:text-[11px] text-stone-400 font-light mt-1.5 italic">
                 — واپسین فرمانروای مصر در برابر محاصره اکتاویان
               </div>
+
+              <!-- Apocryphal Marginalia (Shown for Hypatia and other modern invented quotes) -->
+              <div id="heroQuoteMarginalia" class="hidden apocryphal-note"></div>
             </div>
 
           </div>
@@ -511,13 +537,32 @@
             <span class="text-[10px] uppercase tracking-[0.25em] text-antiqueGold font-semibold" data-i18n="modalHeaderTag">پرونده پژوهشی میان‌رشته‌ای (تاریخ و روان‌شناسی)</span>
             <h2 id="modalName" class="font-serif text-3xl sm:text-4xl text-white mt-1"></h2>
             
+            <!-- Modal Academic Evidence Level & Stance Tag -->
+            <div class="flex flex-wrap items-center gap-2 pt-2">
+              <div class="evidence-pill">
+                <span class="text-stone-400 text-[10px]">سطح شواهد آکادمیک:</span>
+                <span id="modalEvidenceLevel" class="font-medium text-stone-200 text-[10px]"></span>
+                <span id="modalEvidenceDots" class="evidence-dots font-mono text-xs"></span>
+              </div>
+              <div id="modalStanceBadge" class="stance-badge">
+                <span class="text-[9px] uppercase tracking-wider text-stone-400">سوگیری راوی:</span>
+                <span class="text-[10px]" id="modalStanceText"></span>
+              </div>
+            </div>
+
             <!-- Elegant Quote Card in Modal -->
             <div class="p-3.5 rounded-xl quote-box mt-3 relative">
+              <div class="flex items-center justify-between mb-2">
+                <span id="modalQuoteStatusBadge" class="documented-badge"></span>
+              </div>
               <div class="flex items-start gap-3">
                 <svg class="w-5 h-5 text-antiqueGold/80 flex-shrink-0 mt-0.5 rtl:rotate-180" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
                 </svg>
-                <blockquote id="modalQuote" class="font-serif italic text-paleGold text-sm sm:text-base leading-relaxed"></blockquote>
+                <div class="flex-1">
+                  <blockquote id="modalQuote" class="font-serif italic text-paleGold text-sm sm:text-base leading-relaxed"></blockquote>
+                  <div id="modalQuoteMarginalia" class="hidden apocryphal-note mt-2"></div>
+                </div>
               </div>
             </div>
           </div>

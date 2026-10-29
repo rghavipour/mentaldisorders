@@ -11,8 +11,34 @@ let activeSearchQuery = "";
 let highlightedTrait = null;
 let searchDebounceTimer = null;
 
+// ================= QUALITATIVE SPECTRUM HELPER =================
+// Eliminates pseudo-scientific clinical diagnostic percentages
+function getSpectrumLabel(score) {
+  if (currentLang === 'fa') {
+    if (score >= 93) return 'بسیار بالا';
+    if (score >= 82) return 'بالا';
+    if (score >= 68) return 'متوسط رو به بالا';
+    if (score >= 50) return 'متوسط';
+    return 'پایین';
+  } else {
+    if (score >= 93) return 'Very High';
+    if (score >= 82) return 'High';
+    if (score >= 68) return 'Moderate-High';
+    if (score >= 50) return 'Moderate';
+    return 'Low';
+  }
+}
+
 // ================= INITIALIZATION =================
 function initArchive() {
+  // Check URL hash for direct character link (e.g. #hypatia)
+  if (window.location.hash) {
+    const hashId = window.location.hash.replace('#', '').toLowerCase();
+    if (FIGURES_DATA.some(f => f.id === hashId)) {
+      selectedFigureId = hashId;
+    }
+  }
+
   // Apply initial language
   setLanguage(currentLang);
 
@@ -187,6 +213,8 @@ function renderTimeline() {
     const dates = currentLang === 'fa' ? fig.datesFa : fig.datesEn;
     const keywords = currentLang === 'fa' ? fig.keywordsFa : fig.keywordsEn;
     const fallback = fig.fallbackPortrait || 'https://images.unsplash.com/photo-1544967082-d9d25d867d66?auto=format&fit=crop&w=700&q=80';
+    const evidenceDots = fig.evidenceDots || '●●●';
+    const stanceLabel = currentLang === 'fa' ? (fig.stanceLabelFa || 'هم‌دوره') : (fig.stanceLabelEn || 'Contemporary');
 
     // Theme dots
     const dotsHtml = fig.themes.slice(0, 3).map(tId => {
@@ -230,6 +258,13 @@ function renderTimeline() {
             </div>
             <h3 class="font-serif text-sm sm:text-base text-stone-100 font-semibold leading-snug truncate">${name}</h3>
             <p class="text-[10px] text-stone-400 truncate">${secondaryName}</p>
+
+            <!-- Evidence Level & Stance Badges on Card -->
+            <div class="flex items-center justify-between pt-1 text-[9px]">
+              <span class="evidence-dots font-mono" title="${currentLang === 'fa' ? fig.evidenceLabelFa : fig.evidenceLabelEn}">${evidenceDots}</span>
+              <span class="stance-badge ${fig.stance || 'contemporary'} text-[8px] py-0 px-1 font-normal">${stanceLabel}</span>
+            </div>
+
             <p class="text-[11px] text-stone-300 line-clamp-2 leading-relaxed pt-1 font-light">${keywords}</p>
           </div>
         </div>
@@ -292,6 +327,20 @@ function updateHeroSection(figureId) {
   const bioEl = document.getElementById('heroSelectedBio');
   if (bioEl) bioEl.textContent = currentLang === 'fa' ? fig.bioFa : fig.bioEn;
 
+  // Academic Evidence Level & Stance Badges
+  const evLevelEl = document.getElementById('heroEvidenceLevel');
+  if (evLevelEl) evLevelEl.textContent = currentLang === 'fa' ? fig.evidenceLabelFa : fig.evidenceLabelEn;
+
+  const evDotsEl = document.getElementById('heroEvidenceDots');
+  if (evDotsEl) evDotsEl.textContent = fig.evidenceDots || '●●●';
+
+  const stanceBadge = document.getElementById('heroStanceBadge');
+  if (stanceBadge) {
+    stanceBadge.className = `stance-badge ${fig.stance || 'contemporary'}`;
+  }
+  const stanceTextEl = document.getElementById('heroStanceText');
+  if (stanceTextEl) stanceTextEl.textContent = currentLang === 'fa' ? fig.stanceLabelFa : fig.stanceLabelEn;
+
   // Catalog Number
   const catalogCounter = document.getElementById('heroCatalogCounter');
   if (catalogCounter) catalogCounter.textContent = `${String(index + 1).padStart(2, '0')} / ${String(FIGURES_DATA.length).padStart(2, '0')}`;
@@ -306,12 +355,41 @@ function updateHeroSection(figureId) {
   const nextBtnPreview = document.getElementById('nextFigurePreviewName');
   if (nextBtnPreview) nextBtnPreview.textContent = currentLang === 'fa' ? nextFig.nameFa : nextFig.nameEn;
 
-  // Update Quote & Attribution
+  // Update Quote, Attribution & Struck Quote (Apocryphal quote deconstruction)
   const currentQuote = currentLang === 'fa' ? fig.quoteFa : fig.quoteEn;
   const cleanQuoteText = currentQuote ? currentQuote.replace(/^[«“"'\s]+|[»”"'\s]+$/g, '').trim() : '';
 
   const heroQuoteTextEl = document.getElementById('heroQuoteText');
-  if (heroQuoteTextEl) heroQuoteTextEl.textContent = cleanQuoteText;
+  const quoteStatusBadge = document.getElementById('heroQuoteStatusBadge');
+  const quoteMarginaliaEl = document.getElementById('heroQuoteMarginalia');
+
+  if (fig.quoteStatus === 'apocryphal') {
+    // Hypatia's quote invented in 1908 by Elbert Hubbard
+    if (heroQuoteTextEl) {
+      heroQuoteTextEl.className = 'font-serif italic text-xs sm:text-sm leading-relaxed px-1 struck-quote';
+      heroQuoteTextEl.textContent = cleanQuoteText;
+    }
+    if (quoteStatusBadge) {
+      quoteStatusBadge.className = 'apocryphal-badge';
+      quoteStatusBadge.innerHTML = `✕ <span>${currentLang === 'fa' ? fig.quoteStatusLabelFa : fig.quoteStatusLabelEn}</span>`;
+    }
+    if (quoteMarginaliaEl) {
+      quoteMarginaliaEl.classList.remove('hidden');
+      quoteMarginaliaEl.textContent = currentLang === 'fa' ? fig.quoteMarginaliaFa : fig.quoteMarginaliaEn;
+    }
+  } else {
+    if (heroQuoteTextEl) {
+      heroQuoteTextEl.className = 'font-serif italic text-xs sm:text-sm text-paleGold leading-relaxed px-1';
+      heroQuoteTextEl.textContent = cleanQuoteText;
+    }
+    if (quoteStatusBadge) {
+      quoteStatusBadge.className = 'documented-badge';
+      quoteStatusBadge.innerHTML = `✦ <span>${currentLang === 'fa' ? fig.quoteStatusLabelFa : fig.quoteStatusLabelEn}</span>`;
+    }
+    if (quoteMarginaliaEl) {
+      quoteMarginaliaEl.classList.add('hidden');
+    }
+  }
 
   const quoteAttributionEl = document.getElementById('heroQuoteAttribution');
   if (quoteAttributionEl) {
@@ -410,6 +488,7 @@ function renderHeroRadar(fig) {
 }
 
 // ================= RENDER HERO TRAIT PROGRESS BARS =================
+// Uses Qualitative Dimensional Spectrum (No pseudo-scientific percentages)
 function renderHeroTraitBars(fig) {
   const container = document.getElementById('heroTraitBars');
   if (!container) return;
@@ -419,6 +498,8 @@ function renderHeroTraitBars(fig) {
   container.innerHTML = TRAIT_DIMENSIONS.map(dim => {
     const score = scores[dim.key] || 80;
     const label = currentLang === 'fa' ? dim.labelFa : dim.labelEn;
+    const spectrumLabel = getSpectrumLabel(score);
+
     return `
       <div>
         <div class="flex items-center justify-between text-[11px] mb-0.5">
@@ -426,7 +507,7 @@ function renderHeroTraitBars(fig) {
             <span class="w-2 h-2 rounded-full inline-block" style="background:${dim.color}"></span>
             <span>${label}</span>
           </span>
-          <span class="font-mono text-paleGold text-[10px]">${score}%</span>
+          <span class="trait-spectrum-tag font-mono">${spectrumLabel}</span>
         </div>
         <div class="w-full h-1.5 rounded-full bg-white/[0.08] overflow-hidden">
           <div class="h-full rounded-full transition-all duration-700" style="width:${score}%; background:${dim.color}"></div>
@@ -632,6 +713,7 @@ function showWaveTooltip(e, figId, traitKey) {
   const score = (fig.radarScores && fig.radarScores[traitKey]) ? fig.radarScores[traitKey] : 75;
   const name = currentLang === 'fa' ? fig.nameFa : fig.nameEn;
   const traitLabel = currentLang === 'fa' ? dim.labelFa : dim.labelEn;
+  const spectrumLabel = getSpectrumLabel(score);
 
   const tooltip = document.getElementById('waveNodeTooltip');
   if (tooltip) {
@@ -639,7 +721,7 @@ function showWaveTooltip(e, figId, traitKey) {
       <div class="font-medium text-stone-100">${name}</div>
       <div class="text-[11px] text-antiqueGold flex items-center gap-1.5 mt-0.5">
         <span class="w-1.5 h-1.5 rounded-full" style="background:${dim.color}"></span>
-        <span>${traitLabel}: <strong>${score}%</strong></span>
+        <span>${traitLabel}: <strong>${spectrumLabel}</strong></span>
       </div>
     `;
     tooltip.classList.remove('hidden');
@@ -698,18 +780,65 @@ function openDossierModal() {
   document.getElementById('modalDates').textContent = currentLang === 'fa' ? fig.datesFa : fig.datesEn;
   document.getElementById('modalRole').textContent = currentLang === 'fa' ? fig.archetypeFa : fig.archetypeEn;
   document.getElementById('modalName').textContent = currentLang === 'fa' ? fig.nameFa : fig.nameEn;
-  document.getElementById('modalQuote').textContent = currentLang === 'fa' ? fig.quoteFa : fig.quoteEn;
+
+  // Evidence & Stance in Modal
+  const modalEvLevel = document.getElementById('modalEvidenceLevel');
+  if (modalEvLevel) modalEvLevel.textContent = currentLang === 'fa' ? fig.evidenceLabelFa : fig.evidenceLabelEn;
+  const modalEvDots = document.getElementById('modalEvidenceDots');
+  if (modalEvDots) modalEvDots.textContent = fig.evidenceDots || '●●●';
+
+  const modalStanceBadge = document.getElementById('modalStanceBadge');
+  if (modalStanceBadge) modalStanceBadge.className = `stance-badge ${fig.stance || 'contemporary'}`;
+  const modalStanceText = document.getElementById('modalStanceText');
+  if (modalStanceText) modalStanceText.textContent = currentLang === 'fa' ? fig.stanceLabelFa : fig.stanceLabelEn;
+
+  // Modal Quote & Struck Quote handling
+  const modalQuoteEl = document.getElementById('modalQuote');
+  const modalStatusBadge = document.getElementById('modalQuoteStatusBadge');
+  const modalMarginalia = document.getElementById('modalQuoteMarginalia');
+
+  const currentQuote = currentLang === 'fa' ? fig.quoteFa : fig.quoteEn;
+  const cleanQuoteText = currentQuote ? currentQuote.replace(/^[«“"'\s]+|[»”"'\s]+$/g, '').trim() : '';
+
+  if (fig.quoteStatus === 'apocryphal') {
+    if (modalQuoteEl) {
+      modalQuoteEl.className = 'font-serif italic text-sm sm:text-base leading-relaxed struck-quote';
+      modalQuoteEl.textContent = cleanQuoteText;
+    }
+    if (modalStatusBadge) {
+      modalStatusBadge.className = 'apocryphal-badge';
+      modalStatusBadge.innerHTML = `✕ <span>${currentLang === 'fa' ? fig.quoteStatusLabelFa : fig.quoteStatusLabelEn}</span>`;
+    }
+    if (modalMarginalia) {
+      modalMarginalia.classList.remove('hidden');
+      modalMarginalia.textContent = currentLang === 'fa' ? fig.quoteMarginaliaFa : fig.quoteMarginaliaEn;
+    }
+  } else {
+    if (modalQuoteEl) {
+      modalQuoteEl.className = 'font-serif italic text-paleGold text-sm sm:text-base leading-relaxed';
+      modalQuoteEl.textContent = cleanQuoteText;
+    }
+    if (modalStatusBadge) {
+      modalStatusBadge.className = 'documented-badge';
+      modalStatusBadge.innerHTML = `✦ <span>${currentLang === 'fa' ? fig.quoteStatusLabelFa : fig.quoteStatusLabelEn}</span>`;
+    }
+    if (modalMarginalia) {
+      modalMarginalia.classList.add('hidden');
+    }
+  }
+
   document.getElementById('modalHistoricalText').textContent = currentLang === 'fa' ? fig.bioFa : fig.bioEn;
   document.getElementById('modalPsychText').textContent = currentLang === 'fa' ? fig.psychFa : fig.psychEn;
   document.getElementById('modalBiasText').textContent = currentLang === 'fa' ? fig.biasFa : fig.biasEn;
 
-  // Render Modal Trait Bars
+  // Render Modal Trait Bars (Using Qualitative Spectrum Labels)
   const barsContainer = document.getElementById('modalTraitBars');
   if (barsContainer) {
     const scores = fig.radarScores || { agency: 85, realpolitik: 80, affectivity: 75, nonconformity: 80, resilience: 85 };
     barsContainer.innerHTML = TRAIT_DIMENSIONS.map(dim => {
       const score = scores[dim.key] || 80;
       const label = currentLang === 'fa' ? dim.labelFa : dim.labelEn;
+      const spectrumLabel = getSpectrumLabel(score);
       return `
         <div>
           <div class="flex justify-between text-xs mb-1">
@@ -717,7 +846,7 @@ function openDossierModal() {
               <span class="w-2 h-2 rounded-full" style="background:${dim.color}"></span>
               <span>${label}</span>
             </span>
-            <span class="text-paleGold font-mono">${score}%</span>
+            <span class="trait-spectrum-tag font-mono">${spectrumLabel}</span>
           </div>
           <div class="w-full h-2 rounded-full bg-white/10 overflow-hidden">
             <div class="h-full rounded-full transition-all duration-700" style="width:${score}%; background:${dim.color}"></div>
@@ -798,6 +927,16 @@ function handleAddCase(e) {
     quoteFa: '«تاریخ کسانی را به یاد می‌سپارد که برخلاف جریان زمانه، عصر خود را شکل دادند.»',
     quoteAuthorEn: name,
     quoteAuthorFa: name,
+    quoteStatus: 'attributed',
+    quoteStatusLabelFa: 'منسوب هم‌دوره',
+    quoteStatusLabelEn: 'Attributed',
+    evidenceLevel: 'moderate',
+    evidenceDots: '●●○',
+    evidenceLabelFa: 'متوسط (مدخل پژوهشی کاربر)',
+    evidenceLabelEn: 'Moderate (User Contribution)',
+    stance: 'contemporary',
+    stanceLabelFa: 'معاصر و کاربرمحور',
+    stanceLabelEn: 'Contemporary Contribution',
     bioEn: bio,
     bioFa: bio,
     psychEn: 'Custom research entry added to the psychobiographical timeline archive.',

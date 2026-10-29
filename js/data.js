@@ -171,7 +171,21 @@ const FIGURES_DATA = [
       "resilience": 86
     },
     "quoteAuthorFa": "واپسین فرعون مصر، در برابر محاصره روم",
-    "quoteAuthorEn": "Last Pharaoh of Ptolemaic Egypt"
+    "quoteAuthorEn": "Last Pharaoh of Ptolemaic Egypt",
+    "evidenceLevel": "strong",
+    "evidenceDots": "●●●",
+    "evidenceLabelFa": "قوی (چندمنبعی متواتر)",
+    "evidenceLabelEn": "Strong (Well-Attested)",
+    "evidenceExplanationFa": "شواهد متواتر در نوشته‌های پلوتارک، سوئتونیوس، کاسیوس دیو و سکه‌شناسی بطلمیوسی.",
+    "evidenceExplanationEn": "Multiple contemporary and near-contemporary records across Plutarch, Suetonius, and numismatics.",
+    "stance": "hostile",
+    "stanceLabelFa": "تبلیغات خصمانه روم",
+    "stanceLabelEn": "Hostile Roman Propaganda",
+    "quoteStatus": "documented",
+    "quoteStatusLabelFa": "مستند تاریخی (پلوتارک)",
+    "quoteStatusLabelEn": "Documented (Plutarch)",
+    "quoteMarginaliaFa": "ثبت‌شده در تاریخ پلوتارک در شرح امتناع کلئوپاترا از نمایش داده شدن در رژه پیروزی اکتاویان.",
+    "quoteMarginaliaEn": "Recorded by Plutarch regarding her refusal to be paraded in Octavian’s triumph."
   },
   {
     "id": "hypatia",
@@ -247,7 +261,21 @@ const FIGURES_DATA = [
       "resilience": 88
     },
     "quoteAuthorFa": "فیلسوف و ستاره‌شناس مکتب اسکندریه",
-    "quoteAuthorEn": "Neoplatonist Philosopher of Alexandria"
+    "quoteAuthorEn": "Neoplatonist Philosopher of Alexandria",
+    "evidenceLevel": "moderate",
+    "evidenceDots": "●●○",
+    "evidenceLabelFa": "متوسط (همراه با سوگیری وقایع‌نگاران)",
+    "evidenceLabelEn": "Moderate (Chronicler Bias)",
+    "evidenceExplanationFa": "روایت‌های سقراط اسکولاستیکوس در برابر تحریف‌های خصمانه یوحنای نیکیو.",
+    "evidenceExplanationEn": "Neutral record of Socrates Scholasticus contrasted with hostile distortion by John of Nikiu.",
+    "stance": "hostile",
+    "stanceLabelFa": "خصمانه و پسامرگ",
+    "stanceLabelEn": "Hostile & Posthumous",
+    "quoteStatus": "apocryphal",
+    "quoteStatusLabelFa": "جعلی (البرت هابرد، ۱۹۰۸)",
+    "quoteStatusLabelEn": "Apocryphal (Elbert Hubbard, 1908)",
+    "quoteMarginaliaFa": "این نقل‌قول در هیچ منبع باستانی وجود ندارد؛ در سال ۱۹۰۸ توسط البرت هابرد در کتاب «سفرهای کوتاه» ابداع شده و نمونه‌ای از افسانه‌سازی مدرن است.",
+    "quoteMarginaliaEn": "Absent from antiquity. Invented in 1908 by Elbert Hubbard in Little Journeys to the Homes of Great Teachers."
   },
   {
     "id": "wuzetian",
@@ -324,7 +352,21 @@ const FIGURES_DATA = [
       "resilience": 95
     },
     "quoteAuthorFa": "تنها امپراتور زن حاکم بر تاریخ چین (دودمان ژو)",
-    "quoteAuthorEn": "Sole Empress Regnant of China (Zhou Dynasty)"
+    "quoteAuthorEn": "Sole Empress Regnant of China (Zhou Dynasty)",
+    "evidenceLevel": "strong",
+    "evidenceDots": "●●●",
+    "evidenceLabelFa": "قوی (سالنامه‌های رسمی دربار تانگ و ژو)",
+    "evidenceLabelEn": "Strong (Imperial Tang & Zhou Annals)",
+    "evidenceExplanationFa": "کتاب قدیم و جدید تانگ؛ با سوگیری شدید وقایع‌نگاران کنفوسیوسی علیه زن‌سالاری.",
+    "evidenceExplanationEn": "Old and New Book of Tang with pervasive Confucian bias against female rule.",
+    "stance": "hostile",
+    "stanceLabelFa": "خصمانه کنفوسیوسی",
+    "stanceLabelEn": "Hostile Confucian Historiography",
+    "quoteStatus": "attributed",
+    "quoteStatusLabelFa": "منسوب (فرامین دربار ژو)",
+    "quoteStatusLabelEn": "Attributed (Zhou Court Decrees)",
+    "quoteMarginaliaFa": "منسوب به فرامین اصلاحات اداری و آزمون‌های شایسته‌سالاری دربار وو ژو.",
+    "quoteMarginaliaEn": "Attributed to administrative meritocracy decrees of the Zhou court."
   },
   {
     "id": "isabella",
@@ -399,7 +441,21 @@ const FIGURES_DATA = [
       "resilience": 93
     },
     "quoteAuthorFa": "شهبانوی کاستیا و معمار وحدت اسپانیا",
-    "quoteAuthorEn": "Queen of Castile & Unifier of Spain"
+    "quoteAuthorEn": "Queen of Castile & Unifier of Spain",
+    "evidenceLevel": "strong",
+    "evidenceDots": "●●●",
+    "evidenceLabelFa": "قوی (اسناد آرشیو ملی سیمانکاس)",
+    "evidenceLabelEn": "Strong (Simancas Royal Archives)",
+    "evidenceExplanationFa": "اسناد تفتیش عقاید، فرامین اداری و وصیت‌نامه سلطنتی ثبت‌شده در آرشیو اسپانیا.",
+    "evidenceExplanationEn": "Administrative edicts, inquisition registers, and diplomatic correspondence.",
+    "stance": "contemporary",
+    "stanceLabelFa": "هم‌دوره و دولتی",
+    "stanceLabelEn": "Contemporary Institutional",
+    "quoteStatus": "documented",
+    "quoteStatusLabelFa": "مستند (فرامین و مکاتبات شاهی)",
+    "quoteStatusLabelEn": "Documented (Royal Edicts)",
+    "quoteMarginaliaFa": "برگرفته از مکاتبات حاکمیتی در دوران ادغام تاج کاستیا و آراگون.",
+    "quoteMarginaliaEn": "Recorded in institutional statecraft correspondence."
   },
   {
     "id": "catherine",
@@ -474,7 +530,21 @@ const FIGURES_DATA = [
       "resilience": 88
     },
     "quoteAuthorFa": "شهبانوی مادر و استراتژیست رنسانس فرانسه",
-    "quoteAuthorEn": "Queen Mother & Diplomat of Renaissance France"
+    "quoteAuthorEn": "Queen Mother & Diplomat of Renaissance France",
+    "evidenceLevel": "strong",
+    "evidenceDots": "●●●",
+    "evidenceLabelFa": "قوی (نامه‌ها و مکاتبات پاریس)",
+    "evidenceLabelEn": "Strong (Paris Diplomatic Letters)",
+    "evidenceExplanationFa": "بیش از ۶۰۰۰ نامه مستند در برابر شب‌نامه‌های هوگنوها (افسانه سیاه).",
+    "evidenceExplanationEn": "Over 6,000 surviving letters versus contemporary Huguenot pamphlets (The Black Legend).",
+    "stance": "hostile",
+    "stanceLabelFa": "شب‌نامه‌های خصمانه",
+    "stanceLabelEn": "Hostile Huguenot Pamphlets",
+    "quoteStatus": "documented",
+    "quoteStatusLabelFa": "مستند (نامه‌های کاترین)",
+    "quoteStatusLabelEn": "Documented (Catherine’s Letters)",
+    "quoteMarginaliaFa": "ثبت‌شده در نامه‌های کاترین به فرزندانش در میانه جنگ‌های مذهبی فرانسه.",
+    "quoteMarginaliaEn": "Recorded in private counsel to her royal heirs during the French Wars of Religion."
   },
   {
     "id": "maryshelley",
@@ -549,7 +619,21 @@ const FIGURES_DATA = [
       "resilience": 86
     },
     "quoteAuthorFa": "خالق فرانکنشتاین و پیشگام ادبیات گوتیک",
-    "quoteAuthorEn": "Author of Frankenstein & Romantic Thinker"
+    "quoteAuthorEn": "Author of Frankenstein & Romantic Thinker",
+    "evidenceLevel": "strong",
+    "evidenceDots": "●●●",
+    "evidenceLabelFa": "قوی (یادداشت‌های روزانه و نسخه‌های خطی)",
+    "evidenceLabelEn": "Strong (Journals & Manuscripts)",
+    "evidenceExplanationFa": "دست‌نوشته‌های اولیه فرانکنشتاین و مکاتبات منتشرشده با پرسی شلی و گادوین.",
+    "evidenceExplanationEn": "Personal journals, draft manuscripts of Frankenstein, and Godwin family archives.",
+    "stance": "contemporary",
+    "stanceLabelFa": "شخصی و ادبی",
+    "stanceLabelEn": "Personal & Literary",
+    "quoteStatus": "documented",
+    "quoteStatusLabelFa": "مستند (مقدمه ۱۸۳۱ فرانکنشتاین)",
+    "quoteStatusLabelEn": "Documented (1831 Introduction)",
+    "quoteMarginaliaFa": "دست‌نوشته مؤلف درباره خلق فرانکنشتاین در ژنو و تصعید سوگ فرزندانش.",
+    "quoteMarginaliaEn": "Author’s authentic preface concerning creative sublimated grief."
   },
   {
     "id": "victoria",
@@ -626,7 +710,21 @@ const FIGURES_DATA = [
       "resilience": 82
     },
     "quoteAuthorFa": "ملکه امپراتوری بریتانیا در عصر ویکتوریا",
-    "quoteAuthorEn": "Monarch of the British Empire"
+    "quoteAuthorEn": "Monarch of the British Empire",
+    "evidenceLevel": "strong",
+    "evidenceDots": "●●●",
+    "evidenceLabelFa": "قوی (آرشیو سلطنتی ویندسور)",
+    "evidenceLabelEn": "Strong (Windsor Royal Archives)",
+    "evidenceExplanationFa": "بیش از ۴۳ هزار صفحه یادداشت روزانه شخصی و مکاتبات حکومتی مستند با نخست‌وزیران.",
+    "evidenceExplanationEn": "Over 43,000 pages of personal daily journals and official state correspondence.",
+    "stance": "contemporary",
+    "stanceLabelFa": "روایت اول شخص",
+    "stanceLabelEn": "First-Person Contemporary",
+    "quoteStatus": "documented",
+    "quoteStatusLabelFa": "مستند (دفتر خاطرات ۱۸۶۱)",
+    "quoteStatusLabelEn": "Documented (1861 Journal)",
+    "quoteMarginaliaFa": "ثبت‌شده در دفتر خاطرات شخصی پس از شوک درگذشت شاهزاده آلبرت.",
+    "quoteMarginaliaEn": "Recorded in her personal journal immediately following Prince Albert’s passing."
   },
   {
     "id": "beauvoir",
@@ -702,7 +800,21 @@ const FIGURES_DATA = [
       "resilience": 90
     },
     "quoteAuthorFa": "فیلسوف اگزیستانسیالیست و نویسنده جنس دوم",
-    "quoteAuthorEn": "Existentialist Philosopher & Feminist Theorist"
+    "quoteAuthorEn": "Existentialist Philosopher & Feminist Theorist",
+    "evidenceLevel": "strong",
+    "evidenceDots": "●●●",
+    "evidenceLabelFa": "قوی (آثار فلسفی و خودزیست‌نامه‌ها)",
+    "evidenceLabelEn": "Strong (Philosophical Texts & Memoirs)",
+    "evidenceExplanationFa": "متن منتشرشده جنس دوم، چهار جلد خودزیست‌نامه و مکاتبات فلسفی ثبت‌شده.",
+    "evidenceExplanationEn": "The Second Sex, 4 volumes of memoirs, and published letters.",
+    "stance": "contemporary",
+    "stanceLabelFa": "فلسفی و مستند",
+    "stanceLabelEn": "Philosophical & Primary",
+    "quoteStatus": "documented",
+    "quoteStatusLabelFa": "مستند (جنس دوم، ۱۹۴۹)",
+    "quoteStatusLabelEn": "Documented (The Second Sex, 1949)",
+    "quoteMarginaliaFa": "گزاره بنیادین فلسفه فمینیستی در جلد دوم کتاب جنس دوم.",
+    "quoteMarginaliaEn": "Seminal existentialist proposition in Volume II of Le Deuxième Sexe."
   },
   {
     "id": "diana",
@@ -778,7 +890,21 @@ const FIGURES_DATA = [
       "resilience": 74
     },
     "quoteAuthorFa": "شاهدخت ولز و نماد همدلی عاطفی در اواخر قرن بیستم",
-    "quoteAuthorEn": "Princess of Wales & Affective Icon"
+    "quoteAuthorEn": "Princess of Wales & Affective Icon",
+    "evidenceLevel": "strong",
+    "evidenceDots": "●●●",
+    "evidenceLabelFa": "قوی (نوارهای صوتی مورتون و مصاحبه‌ها)",
+    "evidenceLabelEn": "Strong (Recorded Morton Tapes & Broadcasts)",
+    "evidenceExplanationFa": "نوارهای صوتی ضبط‌شده با اندرو مورتون (۱۹۹۱) و مصاحبه پانوراما (۱۹۹۵).",
+    "evidenceExplanationEn": "Audio recordings for Andrew Morton (1991) and the BBC Panorama interview (1995).",
+    "stance": "contemporary",
+    "stanceLabelFa": "مصاحبه زنده و رسانه‌ای",
+    "stanceLabelEn": "Live Broadcast & Media",
+    "quoteStatus": "documented",
+    "quoteStatusLabelFa": "مستند (بی‌بی‌سی پانوراما، ۱۹۹۵)",
+    "quoteStatusLabelEn": "Documented (BBC Panorama, 1995)",
+    "quoteMarginaliaFa": "گفتگوی مستقیم با دوربین در مصاحبه تاریخی پانوراما درباره بیگانگی در ساختار سلطنتی.",
+    "quoteMarginaliaEn": "Direct television broadcast regarding her isolation within palace structures."
   },
   {
     "id": "contemporary",
@@ -854,7 +980,21 @@ const FIGURES_DATA = [
       "resilience": 90
     },
     "quoteAuthorFa": "گذار به نظام‌های ابعادی شخصیت در قرن بیست و یکم",
-    "quoteAuthorEn": "21st Century Dimensional & Trauma Paradigms"
+    "quoteAuthorEn": "21st Century Dimensional & Trauma Paradigms",
+    "evidenceLevel": "strong",
+    "evidenceDots": "●●●",
+    "evidenceLabelFa": "قوی (راهنماهای رسمی APA و WHO)",
+    "evidenceLabelEn": "Strong (Official APA & WHO Standards)",
+    "evidenceExplanationFa": "کتابچه تشخیصی DSM-5-TR (بخش ۳) و طبقه‌بندی بین‌المللی بیماری‌ها ICD-11.",
+    "evidenceExplanationEn": "APA DSM-5-TR Alternative Model (Section III) and WHO ICD-11 Clinical Standards.",
+    "stance": "modern",
+    "stanceLabelFa": "پارادایم آکادمیک مدرن",
+    "stanceLabelEn": "Modern Academic Paradigm",
+    "quoteStatus": "documented",
+    "quoteStatusLabelFa": "مستند (DSM-5-TR / ICD-11)",
+    "quoteStatusLabelEn": "Documented (DSM-5-TR / ICD-11)",
+    "quoteMarginaliaFa": "گذار روان‌پزشکی از برچسب‌های ایستا به ابعاد پیوسته شخصیت و درک تروما.",
+    "quoteMarginaliaEn": "Transition from categorical diagnostic labels to dimensional trait continuums."
   }
 ];
 

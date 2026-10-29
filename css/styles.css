@@ -392,6 +392,145 @@ body {
   outline-offset: 2px;
 }
 
+/* ========================================================
+   EPISTEMOLOGICAL & ACADEMIC CLEANUP STYLES
+   Evidence Levels, Stance Tags & Animated Struck Quotes
+   ======================================================== */
+
+/* Animated Red Pen Strike-Through for Apocryphal / Invented Quotes */
+.struck-quote {
+  position: relative;
+  display: inline;
+  color: #a89f91 !important;
+  transition: color 0.4s ease;
+}
+
+.struck-quote::after {
+  content: '';
+  position: absolute;
+  left: -2%;
+  top: 52%;
+  width: 104%;
+  height: 2.5px;
+  background-color: #b42318;
+  transform: rotate(-1.2deg);
+  transform-origin: left center;
+  border-radius: 2px;
+  box-shadow: 0 0 8px rgba(180, 35, 24, 0.7);
+  animation: strikeThrough 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@keyframes strikeThrough {
+  0% {
+    width: 0%;
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    width: 104%;
+    opacity: 1;
+  }
+}
+
+.apocryphal-badge {
+  background: rgba(180, 35, 24, 0.16);
+  border: 1px solid rgba(180, 35, 24, 0.6);
+  color: #fca5a5;
+  font-size: 0.68rem;
+  padding: 0.15rem 0.6rem;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: inherit;
+}
+
+.documented-badge {
+  background: rgba(205, 164, 94, 0.12);
+  border: 1px solid rgba(205, 164, 94, 0.4);
+  color: var(--gold-pale);
+  font-size: 0.68rem;
+  padding: 0.15rem 0.6rem;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.apocryphal-note {
+  color: #fca5a5;
+  font-size: 0.72rem;
+  line-height: 1.45;
+  margin-top: 0.5rem;
+  border-inline-start: 2px solid #b42318;
+  padding-inline-start: 0.6rem;
+  text-align: start;
+  background: rgba(180, 35, 24, 0.06);
+  padding-block: 0.35rem;
+  border-radius: 0 4px 4px 0;
+}
+
+/* Academic Evidence Level Pills */
+.evidence-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.7rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--text-secondary);
+}
+
+.evidence-dots {
+  color: var(--gold-antique);
+  letter-spacing: 1px;
+}
+
+/* Stance / Chronicler Bias Badges */
+.stance-badge {
+  font-size: 0.68rem;
+  padding: 0.15rem 0.55rem;
+  border-radius: 4px;
+  border: 1px solid rgba(205, 164, 94, 0.3);
+  background: rgba(205, 164, 94, 0.08);
+  color: var(--gold-pale);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.stance-badge.hostile {
+  border-color: rgba(200, 90, 72, 0.5);
+  background: rgba(200, 90, 72, 0.14);
+  color: #fca5a5;
+}
+
+.stance-badge.contemporary {
+  border-color: rgba(74, 136, 199, 0.5);
+  background: rgba(74, 136, 199, 0.14);
+  color: #93c5fd;
+}
+
+.stance-badge.modern {
+  border-color: rgba(62, 163, 118, 0.5);
+  background: rgba(62, 163, 118, 0.14);
+  color: #86efac;
+}
+
+/* Dimensional Qualitative Labels (No Pseudo-Scientific Diagnostic Percentages) */
+.trait-spectrum-tag {
+  font-size: 0.65rem;
+  padding: 0.1rem 0.45rem;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--gold-pale);
+  font-family: inherit;
+}
+
 /* Responsive adjustments */
 @media (max-width: 640px) {
   .arch-card {
