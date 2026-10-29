@@ -179,11 +179,11 @@ let searchDebounceTimer = null;
           <article 
             data-id="${fig.id}"
             onclick="selectFigure('${fig.id}')"
-            class="arch-card cursor-pointer w-[176px] sm:w-[192px] flex-shrink-0 flex flex-col justify-between p-2.5 relative ${isSelected ? 'active-card' : ''}"
+            class="arch-card cursor-pointer w-[160px] sm:w-[192px] flex-shrink-0 flex flex-col justify-between p-2 sm:p-2.5 relative ${isSelected ? 'active-card' : ''}"
           >
             <!-- Top Arch Portrait -->
             <div>
-              <div class="arch-image-wrapper h-[132px] w-full bg-obsidian mb-3">
+              <div class="arch-image-wrapper h-[120px] sm:h-[132px] w-full bg-obsidian mb-2.5 sm:mb-3">
                 <img 
                   src="${fig.thumbWebp || fig.portrait}" 
                   onerror="this.onerror=null;this.src='${fallback}';"

@@ -31,16 +31,20 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%2307090e' stroke='%23c9a66b' stroke-width='4'/%3E%3Ctext x='50' y='67' font-size='52' font-family='serif' fill='%23c9a66b' text-anchor='middle' font-weight='bold'%3EW%3C/text%3E%3C/svg%3E" type="image/svg+xml" />
 
   <!-- Performance & Preload Optimization -->
+  <link rel="preload" href="fonts/Vazirmatn-Regular.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/Vazirmatn-Medium.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" as="image" href="images/cleopatra.webp" type="image/webp" fetchpriority="high" />
+
+  <!-- Preconnect External Assets -->
   <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
   <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="image" href="images/cleopatra.webp" type="image/webp" fetchpriority="high" />
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Google Fonts: Cormorant Garamond (Classical Serif), Plus Jakarta Sans (Clean UI), Vazirmatn (Persian) -->
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Google Fonts: Cormorant Garamond & Plus Jakarta Sans -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <script>
     tailwind.config = {
@@ -124,7 +128,7 @@
             id="searchInput"
             type="text" 
             placeholder="Search a woman, era, or trait..." 
-            class="bg-white/[0.04] border border-white/10 focus:border-antiqueGold/60 rounded-full pl-9 pr-4 py-1.5 text-xs text-stone-200 placeholder-stone-500 w-44 sm:w-56 focus:outline-none focus:ring-1 focus:ring-antiqueGold/30 transition"
+            class="bg-white/[0.04] border border-white/10 focus:border-antiqueGold/60 rounded-full pl-9 pr-3 py-1.5 text-xs text-stone-200 placeholder-stone-500 w-32 xs:w-44 sm:w-56 focus:outline-none focus:ring-1 focus:ring-antiqueGold/30 transition"
           />
         </div>
 
@@ -133,14 +137,14 @@
           <button 
             id="btnLangEn"
             onclick="setLanguage('en')" 
-            class="px-2.5 py-1 rounded-full transition font-medium bg-antiqueGold text-obsidian"
+            class="px-2 py-1 sm:px-2.5 rounded-full transition font-medium bg-antiqueGold text-obsidian text-[11px] sm:text-xs"
           >
             EN
           </button>
           <button 
             id="btnLangFa"
             onclick="setLanguage('fa')" 
-            class="px-2.5 py-1 rounded-full transition font-medium text-stone-300 hover:text-white font-persian"
+            class="px-2 py-1 sm:px-2.5 rounded-full transition font-medium text-stone-300 hover:text-white font-persian text-[11px] sm:text-xs"
           >
             فارسی
           </button>
@@ -153,6 +157,7 @@
           rel="noopener noreferrer" 
           class="md:hidden p-2 rounded-full border border-white/10 hover:border-antiqueGold/50 bg-white/[0.04] text-stone-300 hover:text-paleGold transition" 
           title="GitHub Repository"
+          aria-label="GitHub Repository"
         >
           <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.12 3.05.74.8 1.18 1.83 1.18 3.09 0 4.42-2.69 5.39-5.26 5.68.41.36.78 1.06.78 2.14 0 1.55-.01 2.79-.01 3.17 0 .31.21.68.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
         </a>
@@ -160,6 +165,17 @@
 
     </div>
   </header>
+
+  <!-- Mobile Quick Navigation Bar -->
+  <div class="flex md:hidden items-center justify-between px-3 py-2 border-b border-white/[0.07] bg-obsidian/95 backdrop-blur-md sticky top-[57px] z-30 text-[11px] overflow-x-auto no-scrollbar gap-2">
+    <button onclick="scrollToSection('timelineSection')" class="px-2.5 py-1 rounded bg-white/[0.03] hover:bg-white/[0.08] text-stone-300 hover:text-paleGold whitespace-nowrap transition" data-i18n="navTimeline">Timeline</button>
+    <button onclick="openDossierModal()" class="px-2.5 py-1 rounded bg-white/[0.03] hover:bg-white/[0.08] text-stone-300 hover:text-paleGold whitespace-nowrap transition" data-i18n="navProfiles">Dossier</button>
+    <button onclick="scrollToSection('researchSection')" class="px-2.5 py-1 rounded bg-white/[0.03] hover:bg-white/[0.08] text-stone-300 hover:text-paleGold whitespace-nowrap transition" data-i18n="navPsychology">Psychology</button>
+    <button onclick="openMethodologyModal()" class="px-2.5 py-1 rounded bg-white/[0.03] hover:bg-white/[0.08] text-stone-300 hover:text-paleGold whitespace-nowrap transition" data-i18n="navMethodology">Methodology</button>
+    <button onclick="openAddCaseModal()" class="px-2.5 py-1 rounded bg-antiqueGold/20 hover:bg-antiqueGold/30 text-paleGold whitespace-nowrap transition flex items-center gap-1 font-medium border border-antiqueGold/40">
+      <span>+</span> <span data-i18n="navAddCase">Add</span>
+    </button>
+  </div>
 
   <!-- ================= 1. HERO SECTION — SELECTED FIGURE & FILTERS ================= -->
   <main class="max-w-[1600px] w-full mx-auto px-4 lg:px-10 pt-4 pb-8 flex-1 flex flex-col justify-between">
@@ -242,8 +258,8 @@
       <div class="lg:col-span-5 flex flex-col items-center justify-center relative my-4 lg:my-0">
         
         <!-- Golden Quote Plaque Above Head -->
-        <div class="mb-5 sm:mb-6 w-full max-w-[340px] sm:max-w-[430px] z-30 px-2 flex justify-center">
-          <div class="golden-quote-plaque relative px-5 sm:px-7 py-3.5 rounded-2xl w-full text-center">
+        <div class="mb-4 sm:mb-6 w-full max-w-[310px] sm:max-w-[430px] z-30 px-1 sm:px-2 flex justify-center">
+          <div class="golden-quote-plaque relative px-3.5 sm:px-7 py-3 sm:py-3.5 rounded-2xl w-full text-center">
             <!-- Top Archive Number Badge -->
             <div class="quote-tag-badge absolute -top-2.5 left-1/2 -translate-x-1/2 flex items-center gap-1.5 px-3 py-0.5 rounded-full text-[9px] font-mono tracking-widest uppercase">
               <span class="text-antiqueGold text-[8px]">✦</span>
@@ -253,17 +269,17 @@
 
             <!-- Golden Quotation Marks & Quote Text -->
             <div class="flex items-center justify-center gap-2 pt-1 text-center">
-              <span id="heroQuoteOpenMark" class="golden-quote-mark text-2xl sm:text-3xl leading-none select-none">“</span>
-              <blockquote id="heroQuoteText" class="font-serif italic text-xs sm:text-sm text-paleGold leading-relaxed px-1 font-normal">
+              <span id="heroQuoteOpenMark" class="golden-quote-mark text-xl sm:text-3xl leading-none select-none">“</span>
+              <blockquote id="heroQuoteText" class="font-serif italic text-xs sm:text-sm text-paleGold leading-relaxed px-1 font-normal break-words">
                 من هرگز به عنوان غنیمت در رژه پیروزی دشمن به نمایش گذاشته نخواهم شد.
               </blockquote>
-              <span id="heroQuoteCloseMark" class="golden-quote-mark text-2xl sm:text-3xl leading-none select-none">”</span>
+              <span id="heroQuoteCloseMark" class="golden-quote-mark text-xl sm:text-3xl leading-none select-none">”</span>
             </div>
           </div>
         </div>
 
         <!-- Ghostly Background Architectural & Secondary Faces Layer -->
-        <div class="w-[300px] h-[300px] sm:w-[390px] sm:h-[390px] rounded-full hero-halo relative flex items-center justify-center overflow-visible">
+        <div class="w-[260px] h-[260px] sm:w-[390px] sm:h-[390px] rounded-full hero-halo relative flex items-center justify-center overflow-visible">
           
           <!-- Ambient Glow Behind Portrait -->
           <div class="absolute inset-4 rounded-full bg-gradient-to-b from-antiqueGold/15 via-transparent to-obsidian blur-xl pointer-events-none"></div>
@@ -291,7 +307,7 @@
           />
 
           <!-- Main Featured Circular/Arch Portrait (Clean and uncluttered) -->
-          <div class="relative w-[270px] h-[270px] sm:w-[350px] sm:h-[350px] rounded-full overflow-hidden border border-antiqueGold/40 shadow-[0_0_50px_rgba(0,0,0,0.9)] bg-midnight">
+          <div class="relative w-[230px] h-[230px] sm:w-[350px] sm:h-[350px] rounded-full overflow-hidden border border-antiqueGold/40 shadow-[0_0_50px_rgba(0,0,0,0.9)] bg-midnight">
             <img 
               id="heroMainPortrait"
               src="images/cleopatra.webp" 
@@ -309,10 +325,10 @@
         </div>
       </div>
 
-      <!-- RIGHT COLUMN: Interactive Filters (THEMES & TIME PERIODS) exactly as in Mockup -->
-      <div class="lg:col-span-3 flex flex-row lg:flex-col justify-between lg:items-end gap-6 z-20">
+      <!-- RIGHT COLUMN: Interactive Filters (THEMES & TIME PERIODS) -->
+      <div class="lg:col-span-3 flex flex-col justify-start lg:items-end z-20">
         
-        <div class="w-full lg:w-52 bg-slateGlass/60 border border-white/[0.07] rounded-xl p-4 backdrop-blur-md space-y-5">
+        <div class="w-full lg:w-56 bg-slateGlass/60 border border-white/[0.07] rounded-xl p-4 backdrop-blur-md grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-5">
           
           <!-- THEMES FILTER -->
           <div>
@@ -325,10 +341,8 @@
             </ul>
           </div>
 
-          <div class="h-[1px] bg-white/[0.07]"></div>
-
           <!-- TIME PERIODS FILTER -->
-          <div>
+          <div class="border-t sm:border-t-0 lg:border-t border-white/[0.07] pt-4 sm:pt-0 lg:pt-4">
             <h3 class="text-[10px] uppercase tracking-[0.22em] text-stone-400 font-semibold mb-2.5" data-i18n="filterPeriodsTitle">TIME PERIODS</h3>
             <ul id="periodFilterList" class="space-y-1.5 text-xs">
               <!-- Populated by JS -->
@@ -367,7 +381,7 @@
       <!-- Horizontal Cards Scroll Container -->
       <div 
         id="timelineContainer" 
-        class="flex items-stretch gap-4 overflow-x-auto no-scrollbar py-4 px-6 scroll-smooth relative z-20"
+        class="flex items-stretch gap-3 sm:gap-4 overflow-x-auto no-scrollbar py-4 px-8 sm:px-12 scroll-smooth relative z-20"
       >
         <!-- Populated dynamically by JS -->
       </div>
@@ -419,7 +433,7 @@
           </div>
 
           <!-- Interactive Legend for Psychological Constructs -->
-          <div class="flex flex-wrap items-center gap-3 text-[11px]" id="traitLegendContainer">
+          <div class="flex flex-wrap items-center gap-2 sm:gap-3 text-[10px] sm:text-[11px]" id="traitLegendContainer">
             <button onclick="toggleTraitCurve('neurosis')" data-trait="neurosis" class="trait-btn flex items-center gap-1.5 px-2 py-0.5 rounded bg-white/5 hover:bg-white/10 transition">
               <span class="w-2 h-2 rounded-full bg-traitNeurosis"></span>
               <span data-i18n="traitNeurosis">Neurosis / Melancholia</span>
@@ -488,39 +502,39 @@
         </div>
 
         <!-- Era Timeline Labels at Bottom of Graph -->
-        <div class="grid grid-cols-6 text-[10px] text-stone-400 border-t border-white/[0.07] pt-2">
-          <button onclick="filterByPeriod('Ancient')" class="text-left hover:text-paleGold transition">
+        <div class="grid grid-cols-3 sm:grid-cols-6 gap-2 sm:gap-1 text-[9px] sm:text-[10px] text-stone-400 border-t border-white/[0.07] pt-2.5">
+          <button onclick="filterByPeriod('Ancient')" class="text-center sm:text-left p-1 rounded hover:bg-white/[0.04] transition">
             <span class="block text-stone-200 font-medium" data-i18n="eraAncient">Ancient</span>
-            <span class="text-[9px] text-stone-500">(~500 BC–500)</span>
+            <span class="text-[8px] sm:text-[9px] text-stone-500 block">(~500 BC–500)</span>
           </button>
-          <button onclick="filterByPeriod('Medieval')" class="text-left hover:text-paleGold transition">
+          <button onclick="filterByPeriod('Medieval')" class="text-center sm:text-left p-1 rounded hover:bg-white/[0.04] transition">
             <span class="block text-stone-200 font-medium" data-i18n="eraMedieval">Medieval</span>
-            <span class="text-[9px] text-stone-500">(500–1400)</span>
+            <span class="text-[8px] sm:text-[9px] text-stone-500 block">(500–1400)</span>
           </button>
-          <button onclick="filterByPeriod('Renaissance')" class="text-left hover:text-paleGold transition">
+          <button onclick="filterByPeriod('Renaissance')" class="text-center sm:text-left p-1 rounded hover:bg-white/[0.04] transition">
             <span class="block text-stone-200 font-medium" data-i18n="eraRenaissance">Renaissance</span>
-            <span class="text-[9px] text-stone-500">(1400–1600)</span>
+            <span class="text-[8px] sm:text-[9px] text-stone-500 block">(1400–1600)</span>
           </button>
-          <button onclick="filterByPeriod('Early Modern')" class="text-left hover:text-paleGold transition">
+          <button onclick="filterByPeriod('Early Modern')" class="text-center sm:text-left p-1 rounded hover:bg-white/[0.04] transition">
             <span class="block text-stone-200 font-medium" data-i18n="eraEarlyModern">Early Modern</span>
-            <span class="text-[9px] text-stone-500">(1600–1850)</span>
+            <span class="text-[8px] sm:text-[9px] text-stone-500 block">(1600–1850)</span>
           </button>
-          <button onclick="filterByPeriod('Modern')" class="text-left hover:text-paleGold transition">
+          <button onclick="filterByPeriod('Modern')" class="text-center sm:text-left p-1 rounded hover:bg-white/[0.04] transition">
             <span class="block text-stone-200 font-medium" data-i18n="eraModern">Modern</span>
-            <span class="text-[9px] text-stone-500">(1850–1999)</span>
+            <span class="text-[8px] sm:text-[9px] text-stone-500 block">(1850–1999)</span>
           </button>
-          <button onclick="filterByPeriod('Contemporary')" class="text-left hover:text-paleGold transition">
+          <button onclick="filterByPeriod('Contemporary')" class="text-center sm:text-left p-1 rounded hover:bg-white/[0.04] transition">
             <span class="block text-stone-200 font-medium" data-i18n="eraContemporary">Contemporary</span>
-            <span class="text-[9px] text-stone-500">(2000–Present)</span>
+            <span class="text-[8px] sm:text-[9px] text-stone-500 block">(2000–Present)</span>
           </button>
         </div>
 
       </div>
 
       <!-- Right Column: Deep Dive Card with Classical Statue / Profile Trigger -->
-      <div class="lg:col-span-3 rounded-xl bg-slateGlass border border-white/[0.08] overflow-hidden flex items-stretch relative group">
+      <div class="lg:col-span-3 rounded-xl bg-slateGlass border border-white/[0.08] overflow-hidden flex flex-row items-stretch relative group">
         <!-- Classical bust / sculpture visual -->
-        <div class="w-2/5 relative overflow-hidden bg-midnight">
+        <div class="w-1/3 sm:w-2/5 relative overflow-hidden bg-midnight">
           <picture>
             <source srcset="images/sculpture.webp" type="image/webp" />
             <img 
@@ -536,7 +550,7 @@
           <div class="absolute inset-0 bg-gradient-to-r from-transparent to-obsidian/95"></div>
         </div>
 
-        <div class="w-3/5 p-4 flex flex-col justify-between z-10">
+        <div class="w-2/3 sm:w-3/5 p-4 flex flex-col justify-between z-10">
           <div class="space-y-1.5">
             <span class="text-[10px] uppercase tracking-[0.2em] text-antiqueGold" data-i18n="deepDiveTag">CASE ANALYSIS</span>
             <h4 class="font-serif text-2xl text-stone-100" data-i18n="deepDiveTitle">Deep Dive</h4>

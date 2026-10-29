@@ -43,6 +43,12 @@ The repository is organized cleanly for immediate deployment on **GitHub Pages**
 mentaldisorders/
 ├── .nojekyll           # Bypasses Jekyll build on GitHub Pages
 ├── index.html          # Main HTML5 entry point (Semantic UI, Hero, Timeline, Modals, SEO/A11y)
+├── fonts/              # Self-hosted Vazirmatn Persian typography (woff2, 300 to 700 weights)
+│   ├── Vazirmatn-Light.woff2
+│   ├── Vazirmatn-Regular.woff2
+│   ├── Vazirmatn-Medium.woff2
+│   ├── Vazirmatn-SemiBold.woff2
+│   └── Vazirmatn-Bold.woff2
 ├── css/
 │   └── styles.css      # Museum styling, glowing timeline axis, arch cards, halo effects, GPU acceleration
 ├── js/
