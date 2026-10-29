@@ -422,10 +422,9 @@ function renderHeroRadar(fig) {
   const svg = document.getElementById('heroRadarSvg');
   if (!svg) return;
 
-  const cx = 160;
-  const cy = 138;
+  const cx = 200;
+  const cy = 142;
   const R = 68;
-  const R_label = 96;
   const scores = fig.radarScores || { agency: 85, realpolitik: 80, affectivity: 75, nonconformity: 80, resilience: 85 };
 
   const dimensions = [
@@ -479,39 +478,28 @@ function renderHeroRadar(fig) {
     `;
   });
 
-  // Descriptive colorful text labels around the 5 axes
+  // Deliberately spaced label positions completely outside the chart polygon
+  const labelPositions = [
+    { x: cx, yTitle: 28, yScore: 44, anchor: 'middle' },
+    { x: 286, yTitle: 114, yScore: 130, anchor: 'start' },
+    { x: 260, yTitle: 222, yScore: 238, anchor: 'start' },
+    { x: 140, yTitle: 222, yScore: 238, anchor: 'end' },
+    { x: 114, yTitle: 114, yScore: 130, anchor: 'end' }
+  ];
+
   let labelsHtml = '';
   dimensions.forEach((d, i) => {
-    const angle = -Math.PI / 2 + i * (2 * Math.PI / 5);
-    const lx = cx + R_label * Math.cos(angle);
-    const ly = cy + R_label * Math.sin(angle);
+    const pos = labelPositions[i];
     const name = currentLang === 'fa' ? d.nameFa : d.nameEn;
     const spectrum = getSpectrumLabel(d.score);
-
-    let anchor = 'middle';
-    let titleY = ly;
-    let scoreY = ly + 11;
-
-    if (Math.abs(Math.cos(angle)) < 0.25) {
-      anchor = 'middle';
-      titleY = ly - 7;
-      scoreY = ly + 5;
-    } else if (Math.cos(angle) > 0) {
-      anchor = 'start';
-      titleY = ly - 3;
-      scoreY = ly + 9;
-    } else {
-      anchor = 'end';
-      titleY = ly - 3;
-      scoreY = ly + 9;
-    }
+    const fontFam = currentLang === 'fa' ? "'Vazirmatn', sans-serif" : "'Cinzel', sans-serif";
 
     labelsHtml += `
       <g class="radar-label-group cursor-default select-none">
-        <text x="${lx.toFixed(1)}" y="${titleY.toFixed(1)}" text-anchor="${anchor}" fill="${d.color}" font-size="10.5" font-weight="600">
-          ${d.icon} ${name}
+        <text x="${pos.x}" y="${pos.yTitle}" text-anchor="${pos.anchor}" fill="${d.color}" font-size="11" font-weight="600" font-family="${fontFam}">
+          <tspan>${d.icon}</tspan> <tspan>${name}</tspan>
         </text>
-        <text x="${lx.toFixed(1)}" y="${scoreY.toFixed(1)}" text-anchor="${anchor}" fill="#ecdcb9" font-size="9" font-mono font-medium opacity="0.9">
+        <text x="${pos.x}" y="${pos.yScore}" text-anchor="${pos.anchor}" fill="#ecdcb9" font-size="9.5" font-medium opacity="0.9" font-family="${fontFam}">
           ${spectrum}
         </text>
       </g>
@@ -542,7 +530,7 @@ function renderHeroRadar(fig) {
     <!-- Gemstone Vertex Dots -->
     ${vertexDotsHtml}
     
-    <!-- Colored Dimension Labels with Icons & Spectrum Values -->
+    <!-- Spaced Dimension Labels with Distinct Gemstone Colors -->
     ${labelsHtml}
   `;
 }
